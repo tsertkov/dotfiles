@@ -10,8 +10,9 @@
 ROOT="$HOME/dotfiles"
 BACKUP="$ROOT-backup"
 
+echo "Installing dotfiles..."
+
 if [ ! -d "$ROOT" ]; then
-  echo "Installing dotfiles"
   git clone --recursive https://github.com/tsv/dotfiles.git "$ROOT"
 fi
 
@@ -31,7 +32,7 @@ for f in "$ROOT/dots/"*; do
     # keep backup files in configured folder
     [ -d "$BACKUP" ] || mkdir "$BACKUP"
 
-    b="$BACKUP/$(basename $t)."
+    b="$BACKUP/$(basename $t)"
     n=0
     while [ 1 ]; do
       b1="$b.$n"
@@ -40,19 +41,16 @@ for f in "$ROOT/dots/"*; do
     done
     b="$b1"
     cp -r "$t" "$b"
-    echo "cp -r $t $b"
   fi
-  echo "ln -sfF $f $t"
   ln -sfF "$f" "$t"
 done
 
-# link prezto overloads
+# Link prezto overwrites
 for pf in $(cd "$ROOT/my-prezto/"; find . -type f); do
   pf=${pf:2}
   f="$ROOT/my-prezto/$pf"
   t="$ROOT/dots/zprezto/$pf"
 
-  echo "ln -sf $f $t"
   ln -sf "$f" "$t"
 done
 
