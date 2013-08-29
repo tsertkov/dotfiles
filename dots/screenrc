@@ -1,0 +1,16 @@
+# Look and feel
+caption always "%{= yk}%h %=%u"
+hardstatus alwayslastline "%-Lw%{= KW}%50>%n%f* %t%{-}%+Lw%< %=%H %m/%d %C%a"
+
+# Our warning of activity
+activity "Activity in %t(%n)"
+
+# Left Right meta key mods
+#ALT-,. and ALT-<>
+bindkey "^[," prev
+bindkey "^[." next
+
+# shell title configuration
+shelltitle "> |zsh"
+
+bind R screen -t '# |R:' sudo su --preserve-environment

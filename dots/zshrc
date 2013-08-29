@@ -1,0 +1,16 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Aleksandr Tsertkov <tsertkov@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# aliases
+alias -g L='|less'
+alias s='screen -d -RR'
+alias htop='sudo htop'

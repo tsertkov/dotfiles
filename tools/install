@@ -1,0 +1,59 @@
+# 
+# Installs dotfiles to ~/dotfiles if not there
+# Symlinks dotfiles from dots/* into your $HOME
+#
+# Authors:
+#   <tsv@gmail.com>
+#
+#
+
+ROOT="$HOME/dotfiles"
+BACKUP="$ROOT-backup"
+
+if [ ! -d "$ROOT" ]; then
+  echo "Installing dotfiles"
+  git clone --recursive https://github.com/tsv/dotfiles.git "$ROOT"
+fi
+
+# Link dots/* to $HOME
+for f in "$ROOT/dots/"*; do
+  f="$f"
+  t="$HOME/.$(basename "${f:1}")"
+
+  if [ -L "$t" ]; then
+    # break if file is already linked
+    if [ "$(readlink "$t")" = "$f"  ]; then
+      continue
+    fi
+  fi
+
+  if [ -e "$t" ]; then
+    # keep backup files in configured folder
+    [ -d "$BACKUP" ] || mkdir "$BACKUP"
+
+    b="$BACKUP/$(basename $t)."
+    n=0
+    while [ 1 ]; do
+      b1="$b.$n"
+      [ -f "$b1" ] || break
+      n=$(expr $n + 1)
+    done
+    b="$b1"
+    cp -r "$t" "$b"
+    echo "cp -r $t $b"
+  fi
+  echo "ln -sfF $f $t"
+  ln -sfF "$f" "$t"
+done
+
+# link prezto overloads
+for pf in $(cd "$ROOT/my-prezto/"; find . -type f); do
+  pf=${pf:2}
+  f="$ROOT/my-prezto/$pf"
+  t="$ROOT/dots/zprezto/$pf"
+
+  echo "ln -sf $f $t"
+  ln -sf "$f" "$t"
+done
+
+echo "Dotfiles were installed successfully"

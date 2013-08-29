@@ -1,0 +1,14 @@
+#
+# Install homebrew packages
+#
+# Authors:
+#   <tsv@gmail.com>
+#
+#
+
+# Core packages
+brew install --disable-etcdir zsh
+brew install lesspipe
+brew install htop
+brew install wget
+brew install git
