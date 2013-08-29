@@ -30,7 +30,8 @@ for f in "$ROOT/dots/"*; do
 
   if [ -e "$t" ]; then
     # keep backup files in configured folder
-    [ -d "$BACKUP" ] || mkdir "$BACKUP"
+    [ -d "$BACKUP" ] || mkdir "$BACKUP" && \
+        echo "Created $BACKUP/"
 
     b="$BACKUP/$(basename $t)"
     n=0
