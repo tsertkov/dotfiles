@@ -11,6 +11,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # aliases
+alias l=ls -G
 alias -g L='|less'
 alias s='screen -d -RR'
 alias htop='sudo htop'
