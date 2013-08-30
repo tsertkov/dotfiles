@@ -46,13 +46,4 @@ for f in "$ROOT/dots/"*; do
   ln -sfF "$f" "$t"
 done
 
-# Link prezto overwrites
-for pf in $(cd "$ROOT/my-prezto/"; find . -type f); do
-  pf=${pf:2}
-  f="$ROOT/my-prezto/$pf"
-  t="$ROOT/dots/zprezto/$pf"
-
-  ln -sf "$f" "$t"
-done
-
 echo "Dotfiles were installed successfully"
