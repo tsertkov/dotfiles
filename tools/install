@@ -1,4 +1,4 @@
-# 
+#
 # Installs dotfiles to ~/dotfiles if not there
 # Symlinks dotfiles from dots/* into your $HOME
 #
@@ -14,6 +14,10 @@ echo "Installing dotfiles..."
 
 if [ ! -d "$ROOT" ]; then
   git clone --recursive https://github.com/tsv/dotfiles.git "$ROOT"
+  if [ ! $? -eq 0 ]; then
+    echo "Error: Could not clone dotfiles git repository."
+    exit 1
+  fi
 fi
 
 # Link dots/* to $HOME
@@ -28,10 +32,17 @@ for f in "$ROOT/dots/"*; do
     fi
   fi
 
+  # keep backup of old dotfiles in configured folder
   if [ -e "$t" ]; then
-    # keep backup files in configured folder
-    [ -d "$BACKUP" ] || mkdir "$BACKUP" && \
-        echo "Created $BACKUP/"
+    if [ ! -d "$BACKUP" ]; then
+      mkdir "$BACKUP"
+      if [ $? -eq 0 ]; then
+        echo "Created backup directory at $BACKUP."
+      else
+        echo "Error: Could not create backup directory at $BACKUP."
+        exit 1
+      fi
+    fi
 
     b="$BACKUP/$(basename $t)"
     n=0
@@ -41,9 +52,19 @@ for f in "$ROOT/dots/"*; do
       n=$(expr $n + 1)
     done
     b="$b1"
-    cp -r "$t" "$b"
+
+    mv "$t" "$b"
+    if [ $? -eq 0 ]; then
+      ln -s "$f" "$t"
+    else
+      echo "Warning: Could not move $t into backup directory."
+    fi
+  else
+    ln -s "$f" "$t"
   fi
-  ln -sfF "$f" "$t"
 done
+
+# Install vundle packages
+vim +BundleInstall +qall
 
 echo "Dotfiles were installed successfully"

@@ -1,3 +1,6 @@
 [submodule "dots/zprezto"]
 	path = dots/zprezto
 	url = https://github.com/tsertkov/prezto.git
+[submodule "dots/vim/bundle/vundle"]
+	path = dots/vim/bundle/vundle
+	url = https://github.com/gmarik/vundle.git
