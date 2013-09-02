@@ -1,10 +1,3 @@
-# ~/dotfiles
+# Dotfiles (~/dotfiles)
 
 These are my personal dotfiles.
-
-## Prezto
-
-### Overloads
-
-## Vundle
-
