@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 # Installs dotfiles to ~/dotfiles if not there
 # Symlinks dotfiles from dots/* into your $HOME
@@ -11,6 +12,12 @@ ROOT="$HOME/dotfiles"
 BACKUP="$ROOT-backup"
 
 echo "Installing dotfiles..."
+
+# Fail early if $HOME is not set
+if [ -z "${HOME+xxx}" ]; then
+  echo "Error: \$HOME variable is not set."
+  exit 1
+fi
 
 if [ ! -d "$ROOT" ]; then
   git clone --recursive https://github.com/tsv/dotfiles.git "$ROOT"
