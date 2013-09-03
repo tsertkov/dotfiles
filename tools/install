@@ -28,9 +28,8 @@ if [ ! -d "$ROOT" ]; then
 fi
 
 # Link dots/* to $HOME
-for f in "$ROOT/dots/"*; do
-  f="$f"
-  t="$HOME/.$(basename "${f:1}")"
+for f in "$ROOT/dots/*"; do
+  t="$HOME/.$(basename "$f")"
 
   if [ -L "$t" ]; then
     # break if file is already linked
@@ -51,7 +50,7 @@ for f in "$ROOT/dots/"*; do
       fi
     fi
 
-    b="$BACKUP/$(basename $t)"
+    b="$BACKUP/$(basename "$t")"
     n=0
     while [ 1 ]; do
       b1="$b.$n"
