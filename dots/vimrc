@@ -317,7 +317,7 @@ try
         colorscheme solarized
     endif
 catch
-    echo 'Error: Could not set prefered color scheme'
+    silent execute "!echo 'Error: Could not set prefered color scheme'"
     colorscheme default
 endtry
 
