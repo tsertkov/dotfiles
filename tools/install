@@ -20,7 +20,7 @@ if [ -z "${HOME+xxx}" ]; then
 fi
 
 if [ ! -d "$ROOT" ]; then
-  git clone --recursive https://github.com/tsv/dotfiles.git "$ROOT"
+  git clone --recursive https://github.com/tsertkov/dotfiles.git "$ROOT"
   if [ ! $? -eq 0 ]; then
     echo "Error: Could not clone dotfiles git repository."
     exit 1
