@@ -15,8 +15,11 @@ if test ! $(which brew); then
 fi
 
 # Install core packages
-brew install --disable-etcdir zsh
 brew install lesspipe
 brew install htop
 brew install wget
 brew install git
+
+# Should be installed last to make sure user will read messages from
+# about manual postinstall actions required to use zsh
+brew install --disable-etcdir zsh
