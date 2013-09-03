@@ -1,3 +1,9 @@
+# General
+defutf8 on
+autodetach on
+nonblock on
+altscreen on
+
 # Terminal
 defbce on
 term screen-256color-bce
