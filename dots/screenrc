@@ -1,3 +1,7 @@
+# Terminal
+defbce on
+term screen-256color-bce
+
 # Look and feel
 caption always "%{= yk}%h %=%u"
 hardstatus alwayslastline "%-Lw%{= KW}%50>%n%f* %t%{-}%+Lw%< %=%H %m/%d %C%a"
