@@ -11,9 +11,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # aliases
-alias l="ls"
-alias la="ls -a"
-alias lla="ls -lha"
+alias l='ls'
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -la'
+alias lm='lla | "$PAGER"'
 
 alias -g L='|less'
 alias s='screen -d -RR'
