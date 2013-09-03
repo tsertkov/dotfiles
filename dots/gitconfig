@@ -16,3 +16,5 @@
 [user]
   email = tsertkov@gmail.com
   name = Aleksandr Tsertkov
+[push]
+  default = simple
