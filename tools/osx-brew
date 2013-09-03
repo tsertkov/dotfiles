@@ -20,6 +20,10 @@ brew install htop
 brew install wget
 brew install git
 
+# Install screen with 256 color support
+brew tap homebrew/dupes
+brew install screen
+
 # Should be installed last to make sure user will read messages from
 # about manual postinstall actions required to use zsh
 brew install --disable-etcdir zsh
