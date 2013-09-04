@@ -1,12 +1,5 @@
 #!/bin/sh
-#
-# Installs dotfiles to ~/dotfiles if not there
-# Symlinks dotfiles from dots/* into your $HOME
-#
-# Authors:
-#   <tsv@gmail.com>
-#
-#
+# Install or update ~/dotfiles
 
 ROOT="$HOME/dotfiles"
 BACKUP="$ROOT-backup"

@@ -1,11 +1,5 @@
 #!/bin/sh
-#
 # Install homebrew packages
-#
-# Authors:
-#   <tsv@gmail.com>
-#
-#
 
 # Check for Homebrew
 if test ! $(which brew); then

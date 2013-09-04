@@ -1,11 +1,5 @@
-"
 " Vim configuration file
-" This is a stripped down vimrc from sorin-ionescu/dotfiles
-"
-" Authors:
-"   Aleks <tsertkov@gmail.com>
-"
-"
+" Started as a stripped down vimrc from sorin-ionescu/dotfiles
 
 " Bundles ---------------------------------------------------------------- {{{
 
