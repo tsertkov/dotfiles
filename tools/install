@@ -3,8 +3,7 @@
 
 ROOT="$HOME/dotfiles"
 BACKUP="$ROOT-backup"
-
-echo "Installing dotfiles..."
+REPO="https://github.com/tsertkov/dotfiles.git"
 
 # Fail early if $HOME is not set
 if [ -z "${HOME+xxx}" ]; then
@@ -12,12 +11,18 @@ if [ -z "${HOME+xxx}" ]; then
   exit 1
 fi
 
-if [ ! -d "$ROOT" ]; then
-  git clone --recursive https://github.com/tsertkov/dotfiles.git "$ROOT"
+if [ -d "$ROOT" ]; then
+  echo "Updating existing dotfiles..."
+  cd "$ROOT"
+  git pull
+else
+  echo "Installing dotfiles..."
+  git clone --recursive "$REPO" "$ROOT"
   if [ ! $? -eq 0 ]; then
     echo "Error: Could not clone dotfiles git repository."
     exit 1
   fi
+  cd "$ROOT"
 fi
 
 # Link dots/* to $HOME
@@ -36,9 +41,9 @@ for f in "$ROOT/dots/*"; do
     if [ ! -d "$BACKUP" ]; then
       mkdir "$BACKUP"
       if [ $? -eq 0 ]; then
-        echo "Created backup directory at $BACKUP."
+        echo "Created backup directory at '$BACKUP'."
       else
-        echo "Error: Could not create backup directory at $BACKUP."
+        echo "Error: Could not create backup directory at '$BACKUP'."
         exit 1
       fi
     fi
@@ -56,7 +61,7 @@ for f in "$ROOT/dots/*"; do
     if [ $? -eq 0 ]; then
       ln -s "$f" "$t"
     else
-      echo "Warning: Could not move $t into backup directory."
+      echo "Warning: Could not move '$t' into backup directory."
     fi
   else
     ln -s "$f" "$t"
@@ -66,4 +71,4 @@ done
 # Install vundle packages
 vim +BundleInstall +qall
 
-echo "Dotfiles were installed successfully"
+echo "Dotfiles were installed/updated successfully"
