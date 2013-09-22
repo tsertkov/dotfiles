@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # Install or update ~/dotfiles
 
 ROOT="$HOME/dotfiles"
