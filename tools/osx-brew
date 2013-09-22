@@ -13,6 +13,9 @@ brew install lesspipe
 brew install htop
 brew install wget
 brew install git
+brew install fasd
+brew install macvim
+brew install mc
 
 # Install tmux
 brew install tmux
