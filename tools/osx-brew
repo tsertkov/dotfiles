@@ -16,6 +16,7 @@ brew install git
 brew install fasd
 brew install macvim
 brew install mc
+brew install unrar
 
 # Install tmux
 brew install tmux
