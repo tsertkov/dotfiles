@@ -1,4 +1,38 @@
 #!/usr/bin/env sh
+# Notify about Homebrew and Npm updates via OS X Notification Center
 
-brew update && brew upgrade
-npm -g update
+HOMEBREW_GROUP="sh.brew"
+NPM_GROUP="org.npmjs"
+
+# Homebrew
+out="$(brew update 2>&1)"
+if [ $? -ne 0 ]; then
+  terminal-notifier \
+    -activate com.apple.Terminal \
+    -group "$HOMEBREW_GROUP" \
+    -title "Homebrew update failed" \
+    -message "$out"
+else
+  upgrades="$(brew outdated 2>&1)"
+  num=$(echo "$upgrades" | sed -n '$=')
+  terminal-notifier \
+    -activate com.apple.Terminal \
+    -group "$HOMEBREW_GROUP" \
+    -title "Homebrew upgrades ($num)" \
+    -message "$upgrades"
+fi
+
+# Npm
+upgrades="$(npm -g outdated 2>/dev/null)"
+num=$(echo "$upgrades" | sed -n '$=')
+if [ $num -gt 0 ]; then
+  upgrades=$(echo "$upgrades" \
+    | sed -n -e 's/^\(.*\)@.*$/\1/p' \
+    | tr '\n' ', ' \
+    | sed -e 's/,$//' -e 's/,/, /g')
+  terminal-notifier \
+    -activate com.apple.Terminal \
+    -group "$NPM_GROUP" \
+    -title "Npm upgrades ($num)" \
+    -message "$upgrades"
+fi
