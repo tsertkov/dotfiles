@@ -6,37 +6,41 @@ HOMEBREW_GROUP="sh.brew"
 NPM_GROUP="org.npmjs"
 
 # Homebrew
-out="$(brew update 2>&1)"
-if [ $? -ne 0 ]; then
-  terminal-notifier \
-    -activate com.apple.Terminal \
-    -group "$HOMEBREW_GROUP" \
-    -title "Homebrew update failed" \
-    -message "$out"
-else
-  upgrades="$(brew outdated 2>&1)"
-  num=$(echo "$upgrades" | sed -n '$=')
-  if [ -n "$upgrades" ]; then
+if which brew >/dev/null 2>&1; then
+  out="$(brew update 2>&1)"
+  if [ $? -ne 0 ]; then
     terminal-notifier \
       -activate com.apple.Terminal \
       -group "$HOMEBREW_GROUP" \
-      -title "Homebrew upgrades ($num)" \
-      -message "$upgrades"
+      -title "Homebrew update failed" \
+      -message "$out"
+  else
+    upgrades="$(brew outdated 2>&1)"
+    num=$(echo "$upgrades" | sed -n '$=')
+    if [ -n "$upgrades" ]; then
+      terminal-notifier \
+        -activate com.apple.Terminal \
+        -group "$HOMEBREW_GROUP" \
+        -title "Homebrew upgrades ($num)" \
+        -message "$upgrades"
+    fi
   fi
 fi
 
 # Npm
-upgrades="$(npm -g outdated 2>/dev/null)"
-num=$(echo "$upgrades" | sed -n '$=')
-if [ $num -gt 0 ]; then
-  # make comma separated list of outdated package names
-  upgrades=$(echo "$upgrades" \
-    | sed -n -e 's/^\(.*\)@.*$/\1/p' \
-    | tr '\n' ', ' \
-    | sed -e 's/,$//' -e 's/,/, /g')
-  terminal-notifier \
-    -activate com.apple.Terminal \
-    -group "$NPM_GROUP" \
-    -title "Npm upgrades ($num)" \
-    -message "$upgrades"
+if which npm >/dev/null 2>&1; then
+  upgrades="$(npm -g outdated 2>/dev/null)"
+  num=$(echo "$upgrades" | sed -n '$=')
+  if [ $num -gt 0 ]; then
+    # make comma separated list of outdated package names
+    upgrades=$(echo "$upgrades" \
+      | sed -n -e 's/^\(.*\)@.*$/\1/p' \
+      | tr '\n' ', ' \
+      | sed -e 's/,$//' -e 's/,/, /g')
+    terminal-notifier \
+      -activate com.apple.Terminal \
+      -group "$NPM_GROUP" \
+      -title "Npm upgrades ($num)" \
+      -message "$upgrades"
+  fi
 fi
