@@ -30,7 +30,7 @@ else
 fi
 
 # Link dots/* to $HOME
-for f in "$ROOT/dots/*"; do
+for f in "$ROOT"/dots/*; do
   t="$HOME/.$(basename "$f")"
 
   if [ -L "$t" ]; then
