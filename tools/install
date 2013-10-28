@@ -12,11 +12,15 @@ if [ -z "${HOME+xxx}" ]; then
 fi
 
 if [ -d "$ROOT" ]; then
-  echo "Updating existing dotfiles..."
+  START_TXT="Updating existing dotfiles..."
+  END_TXT="Dotfiles were updated successfully"
+  echo $START_TXT
   cd "$ROOT"
   git pull
 else
-  echo "Installing dotfiles..."
+  START_TXT="Installing dotfiles..."
+  END_TXT="Dotfiles were installed successfully"
+  echo $START_TXT
   git clone --recursive "$REPO" "$ROOT"
   if [ ! $? -eq 0 ]; then
     echo "Error: Could not clone dotfiles git repository."
@@ -71,4 +75,4 @@ done
 # Install vundle packages
 vim +BundleInstall +qall
 
-echo "Dotfiles were installed/updated successfully"
+echo $END_TXT
