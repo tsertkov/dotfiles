@@ -16,7 +16,7 @@ if [ $? -ne 0 ]; then
 else
   upgrades="$(brew outdated 2>&1)"
   num=$(echo "$upgrades" | sed -n '$=')
-  if [ "$upgrades" != "" ]; then
+  if [ -n "$upgrades" ]; then
     terminal-notifier \
       -activate com.apple.Terminal \
       -group "$HOMEBREW_GROUP" \
