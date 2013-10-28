@@ -7,7 +7,9 @@ These are my personal taste dotfiles.
 
 Download and execute installer:
 
-    $ sh -c "$(curl https://raw.github.com/tsertkov/dotfiles/master/installer)"
+```bash
+$ sh -c "$(curl https://raw.github.com/tsertkov/dotfiles/master/installer)"
+```
 
 Installer will clone github repository into ~/dotfiles.
 
@@ -15,4 +17,6 @@ Installer will clone github repository into ~/dotfiles.
 
 Installer will update dotfiles is run locally:
 
-    $ ~/dotfiles/installer
+```bash
+$ ~/dotfiles/installer
+```
