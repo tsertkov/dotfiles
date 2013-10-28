@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 # Notify about Homebrew and Npm updates via OS X Notification Center
+PATH=/usr/local/bin:/usr/bin
 
 HOMEBREW_GROUP="sh.brew"
 NPM_GROUP="org.npmjs"
@@ -15,17 +16,20 @@ if [ $? -ne 0 ]; then
 else
   upgrades="$(brew outdated 2>&1)"
   num=$(echo "$upgrades" | sed -n '$=')
-  terminal-notifier \
-    -activate com.apple.Terminal \
-    -group "$HOMEBREW_GROUP" \
-    -title "Homebrew upgrades ($num)" \
-    -message "$upgrades"
+  if [ "$upgrades" != "" ]; then
+    terminal-notifier \
+      -activate com.apple.Terminal \
+      -group "$HOMEBREW_GROUP" \
+      -title "Homebrew upgrades ($num)" \
+      -message "$upgrades"
+  fi
 fi
 
 # Npm
 upgrades="$(npm -g outdated 2>/dev/null)"
 num=$(echo "$upgrades" | sed -n '$=')
 if [ $num -gt 0 ]; then
+  # make comma separated list of outdated package names
   upgrades=$(echo "$upgrades" \
     | sed -n -e 's/^\(.*\)@.*$/\1/p' \
     | tr '\n' ', ' \
