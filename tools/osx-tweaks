@@ -25,8 +25,14 @@ defaults write NSGlobalDomain KeyRepeat -int 0
 # Disable expose animation
 defaults write com.apple.dock expose-animation-duration -int 0
 
+# pin Dock at start of its side
+defaults write com.apple.dock pinning -string start
+
+# put Dock at left of desktop
+defaults write com.apple.dock orientation -string left
+
 # Disable Notification Center and remove the menu bar icon
-read -p "Disable Notification Center? (y/n): " -n 1 -r; echo
+read -p "Disable Notification Center? (y/n): [n]" -n 1 -r; echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
   launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist
 fi
