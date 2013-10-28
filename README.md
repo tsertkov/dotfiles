@@ -11,7 +11,7 @@ Download and execute installer:
 
 Installer will clone github repository into ~/dotfiles.
 
-### Update
+## Update
 
 Installer will update dotfiles is run locally:
 
