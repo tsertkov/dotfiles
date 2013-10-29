@@ -32,6 +32,9 @@ Source Code Pro Bold looks too heavy in Terminal. To fix this you need to skip i
 * `~/dotfiles/tools/osx-tweaks` apply different OS X tweaks.
 * `~/dotfiles/tools/osx-brew` install required homebrew packages.
 * `~/dotfiles/tools/osx-update` notify via Notification center about outdated homebrew and npm packages.
+* `~/dotfiles/osx/Services/Exiftool rename image.workflow` rename selected images to according to format `%y%m%d-%H%M%S%%-c.%%e` with `exiftool`.
+* `~/dotfiles/osx/Services/Exiftool rename all images.workflow` rename all images in a folder.
+* `~/dotfiles/osx/LaunchAgents/io.github.tsertkov.osx-update.plist` run ~/dotfiles/tools/osx-update script daily.
 
 ## Zsh (Prezto)
 
