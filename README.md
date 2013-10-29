@@ -5,13 +5,13 @@ These are my personal taste dotfiles.
 
 ## Install
 
-Download and execute installer:
+To download and execute installer run:
 
 ```bash
 $ sh -c "$(curl https://raw.github.com/tsertkov/dotfiles/master/installer)"
 ```
 
-Installer will clones github repository into `~/dotfiles`, symlinks everything from `~/dotfiles/dots/` into `~` by prepending dot to original name. If dotfile already exists it will be backed up in `~/dotfiles-backup/`.
+Installer clones github repository into `~/dotfiles`, symlinks all files and folders from `~/dotfiles/dots/` into `~` by prepending dot to original name. If dotfile already exists it will be backed up in `~/dotfiles-backup/`.
 
 ## Update
 
