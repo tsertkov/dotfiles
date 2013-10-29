@@ -29,12 +29,15 @@ Source Code Pro Bold looks too heavy in Terminal. To fix this you need to skip i
 
 ## OS X
 
-* `~/dotfiles/tools/osx-tweaks` Apply different OS X tweaks.
-* `~/dotfiles/tools/osx-brew` Install required homebrew packages.
-* `~/dotfiles/tools/osx-update` Notify via Notification center about outdated homebrew and npm packages.
-* `~/dotfiles/osx/Services/Exiftool rename image.workflow` Rename selected images to according to format `%y%m%d-%H%M%S%%-c.%%e` with `exiftool`.
-* `~/dotfiles/osx/Services/Exiftool rename all images.workflow` Rename all images in a folder.
-* `~/dotfiles/osx/LaunchAgents/io.github.tsertkov.osx-update.plist` Run ~/dotfiles/tools/osx-update script daily.
+* `~/dotfiles/tools/`
+  * `osx-tweaks` Apply different OS X tweaks.
+  * `osx-brew` Install required homebrew packages.
+  * `osx-update` Notify via Notification center about outdated homebrew and npm packages.
+* `~/dotfiles/osx/Services/`
+  * `exiftool_rename_image.workflow` Rename selected images with `exiftool` format `%y%m%d-%H%M%S%%-c.%%e`.
+  * `exiftool_rename_folder_images.workflow` Rename all images in a folder.
+* `~/dotfiles/osx/LaunchAgents/`
+  * `io.github.tsertkov.osx-update.plist` Run ~/dotfiles/tools/osx-update script daily.
 
 ## Zsh (Prezto)
 
@@ -53,8 +56,6 @@ Prezto configuration framework is used to configure zsh. It is cloned into `~/do
 
 ### Prezto enabled modules
 
-Follow these links to reach original module documentation.
-
 * [`environment`](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment) General shell options and environment variables.
 * [`terminal`](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal) Set terminal window and tab titles.
 * [`editor`](https://github.com/sorin-ionescu/prezto/tree/master/modules/editor) Command line editor key bindings.
@@ -67,14 +68,22 @@ Follow these links to reach original module documentation.
 * [`history-substring-search`](https://github.com/sorin-ionescu/prezto/tree/master/modules/history-substring-search) History search from zsh-history-substring-search.
 * [`fasd`](https://github.com/sorin-ionescu/prezto/tree/master/modules/fasd) Command-line productivity booster.
 * [`archive`](https://github.com/sorin-ionescu/prezto/tree/master/modules/archive) Functions to list and extract archives.
-* [`git`](https://github.com/sorin-ionescu/prezto/tree/master/modules/git) Git aliases, functions and exposing repository status information to prompts.
+* [`git`](https://github.com/sorin-ionescu/prezto/tree/master/modules/git) Git aliases, functions and exposing repository status information to prompts.* 
 * [`prompt`](https://github.com/sorin-ionescu/prezto/tree/master/modules/prompt) Prompt themes.
 
 ### Prezto aliases and functions
 
+#### History
+
 * `history-stat` lists the ten most used commands.
+
+#### Directory
+
 * `d` prints the contents of the directory stack.
 * `1 ... 9` changes the directory to the n previous one.
+
+#### Utility: General
+
 * `_` executes a command as another user (`sudo`).
 * `b` opens the default web browser.
 * `cp` copies files and directories interactively.
@@ -87,6 +96,9 @@ Follow these links to reach original module documentation.
 * `pu` changes the directory and pushes the old directory onto the stack (`pushd`).
 * `rm` removes files and directories interactively.
 * `type` displays all the attribute values of a shell parameter.
+
+#### Utility: Files and Directories
+
 * `ls` lists with directories grouped first (GNU only).
 * `l`  lists in one column, hidden files.
 * `ll` lists human readable sizes.
@@ -99,34 +111,67 @@ Follow these links to reach original module documentation.
 * `lc` lists sorted by date, most recent last, shows change time.
 * `lu` lists sorted by date, most recent last, shows access time.
 * `sl` lists directory contents (`ls`).
+
+#### Utility: Mac OS X Everywhere
+
 * `o` opens files and directories (`open` or `xdg-open`).
 * `get` downloads files (`curl` or `wget`).
 * `pbcopy` copies to the pasteboard (`pbcopy`, `xclip` or `xsel`).
 * `pbpaste` pastes from the pasteboard (`pbcopy`, `xclip` or `xsel`).
 * `pbc` copies to the pasteboard (`pbcopy`).
 * `pbp` pastes from the pasteboard (`pbpaste`).
+
+#### Utility: Resource Usage
+
 * `df` displays free disk space using human readable units.
 * `du` displays disk usage using human readable units.
 * `top` displays information about processes (aliased to `htop`, if installed).
 * `topc` displays information about processes sorted by CPU usage (`htop` not installed).
 * `topm` displays information about processes sorted by RAM usage (`htop` not installed).
+
+#### Utility: Miscellaneous
+
 * `http-serve` serves a directory via HTTP.
+
+#### Utility: Functions: General
+
 * `slit` prints columns *1, 2, 3 ... n*.
+
+#### Utility: Functions: Files and Directories
+
 * `cdls` changes to a directory and lists its contents.
 * `dut` displays the grand total disk usage using human readable units.
 * `find-exec` finds files and executes a command on them.
 * `mkdcd` makes a directory and changes to it.
 * `popdls` pops an entry off the directory stack and lists its contents.
 * `pushdls` pushes an entry onto the directory stack and lists its contents.
+
+#### Utility: Functions: Developer
+
 * `diff` highlights diff output (requires `colordiff` or `Git`).
 * `make` highlights make output (requires `colormake`).
 * `wdiff` highlights wdiff output (requires `wdiff `or `Git`).
+
+#### Utility: Functions: Reseource usage
+
 * `psu` displays user owned processes status.
+
+#### Utility: Functions: Search and Replace
+
 * `prep` provides a grep-like pattern search.
 * `psub` provides a sed-like pattern substitution.
+
+#### Archive
+
 * `lsarchive` lists the contents of one or more archives.
-* `unarchive` extracts the contents of one or more archives.
+* `unarchive` extracts the contents of one or more archives
+
+#### Git
+
 * `g` is short for `git`.
+
+#### Git: Branch
+
 * `gb` lists, creates, renames, and deletes branches.
 * `gbc` creates a new branch.
 * `gbl` lists branches and their commits.
@@ -137,6 +182,9 @@ Follow these links to reach original module documentation.
 * `gbX` deletes a branch irrespective of its merged status.
 * `gbm` renames a branch.
 * `gbM` renames a branch even if the new branch name already exists.
+
+#### Git: Commit
+
 * `gc` records changes to the repository.
 * `gca` stages all modified and deleted files.
 * `gcm` records changes to the repository with the given message.
@@ -150,6 +198,9 @@ Follow these links to reach original module documentation.
 * `gcR` removes the *HEAD* commit.
 * `gcs` displays various types of objects.
 * `gcl` lists lost commits.
+
+#### Git: Conflict
+
 * `gCl` lists unmerged files.
 * `gCa` adds unmerged file contents to the index.
 * `gCe` executes merge-tool on all unmerged file.
@@ -157,6 +208,9 @@ Follow these links to reach original module documentation.
 * `gCO` checks out our changes for all unmerged paths.
 * `gCt` checks out their changes for unmerged paths.
 * `gCT` checks out their changes for all unmerged paths.
+
+#### Git: Data
+
 * `gd` displays information about files in the index and the work tree.
 * `gdc` lists cached files.
 * `gdx` lists deleted files.
@@ -164,16 +218,25 @@ Follow these links to reach original module documentation.
 * `gdu` lists untracked files.
 * `gdk` lists killed files.
 * `gdi` lists ignored files.
+
+#### Git: Fetch
+
 * `gf` downloads objects and references from another repository.
 * `gfc` clones a repository into a new directory.
 * `gfm` fetches from and merges with another repository or local branch.
 * `gfr` fetches from and rebases on another repository or local branch.
+
+#### Git: Grep
+
 * `gg` displays lines matching a pattern.
 * `ggi` displays lines matching a pattern ignoring case.
 * `ggl` lists files matching a pattern.
 * `ggL` lists files that are not matching a pattern.
 * `ggv` displays lines not matching a pattern.
 * `ggw` displays lines matching a pattern at word boundary.
+
+#### Git: Index
+
 * `gia` adds file contents to the index.
 * `giA` adds file contents to the index interactively.
 * `giu` adds file contents to the index (updates only known files).
@@ -183,6 +246,9 @@ Follow these links to reach original module documentation.
 * `giR` resets the current index interactively.
 * `gix` removes files/directories from the index (recursively).
 * `giX` removes files/directories from the index (recursively and forced).
+
+#### Git: Log
+
 * `gl` displays the log.
 * `gls` displays the stats log.
 * `gld` displays the diff log.
@@ -190,23 +256,35 @@ Follow these links to reach original module documentation.
 * `glg` displays the graph log.
 * `glb` displays the brief commit log.
 * `glc` displays the commit count for each contributor in descending order.
+
+#### Git: Merge
+
 * `gm` joins two or more development histories together.
 * `gmC` joins two or more development histories together but does not commit.
-* `gmF` joins two or more development histories together but does not commit generating a merge commit even if the * rge resolved as a fast-forward.
+* `gmF` joins two or more development histories together but does not commit generating a merge commit even if the merge resolved as a fast-forward.
 * `gma` aborts the conflict resolution, and reconstructs the pre-merge state.
 * `gmt` runs the merge conflict resolution tools to resolve conflicts.
+
+#### Git: Push
+
 * `gp` updates remote refs along with associated objects.
 * `gpf` forcefully updates remote refs along with associated objects.
 * `gpa` updates remote branches along with associated objects.
 * `gpA` updates remote branches and tags along with associated objects.
 * `gpt` updates remote tags along with associated objects.
-* `gpc` updates remote refs along with associated objects and adds *origin* as an upstream reference for the * rrent branch.
+* `gpc` updates remote refs along with associated objects and adds origin as an upstream reference for the current branch.
 * `gpp` pulls and pushes from origin to origin.
+
+#### Git: Rebase
+
 * `gr` forward-ports local commits to the updated upstream head.
 * `gra` aborts the rebase.
 * `grc` continues the rebase after merge conflicts are resolved.
 * `gri` makes a list of commits to be rebased and opens the editor.
 * `grs` skips the current patch.
+
+#### Git: Remote
+
 * `gR` manages tracked repositories.
 * `gRl` lists remote names and their URLs.
 * `gRa` adds a new remote.
@@ -216,6 +294,9 @@ Follow these links to reach original module documentation.
 * `gRp` prunes all stale remote tracking branches.
 * `gRs` displays information about a given remote.
 * `gRb` opens a remote on [GitHub][3] in the default browser.
+
+#### Git: Stash
+
 * `gs` stashes the changes of the dirty working directory.
 * `gsa` applies the changes recorded in a stash to the working directory.
 * `gsx` drops a stashed state.
@@ -228,6 +309,9 @@ Follow these links to reach original module documentation.
 * `gss` stashes the changes of the dirty working directory, including untracked.
 * `gsS` stashes the changes of the dirty working directory interactively.
 * `gsw` stashes the changes of the dirty working directory retaining the index.
+
+#### Git: Submodule
+
 * `gS` initializes, updates, or inspects submodules.
 * `gSa` adds given a repository as a submodule.
 * `gSf` evaluates a shell command in each of checked out submodules.
@@ -238,6 +322,9 @@ Follow these links to reach original module documentation.
 * `gSs` synchronizes submodules' remote URL to the value specified in .gitmodules.
 * `gSu` fetches and merges the latest changes for all submodule.
 * `gSx` removes a submodule.
+
+#### Git: Working directory
+
 * `gws` displays working-tree status in the short format.
 * `gwS` displays working-tree status.
 * `gwd` displays changes between the working tree and the index (diff).
@@ -248,6 +335,9 @@ Follow these links to reach original module documentation.
 * `gwC` removes untracked files from the working tree.
 * `gwx` removes files from the working tree and from the index recursively.
 * `gwX` removes files from the working tree and from the index recursively and forcefully.
+
+#### Git: Functions
+
 * `git-branch-current` displays the current branch.
 * `git-commit-lost` lists lost commits.
 * `git-dir` displays the path to the Git directory.
@@ -260,6 +350,9 @@ Follow these links to reach original module documentation.
 * `git-stash-recover` recovers given dropped stashed states.
 * `git-submodule-move` moves a submodule.
 * `git-submodule-remove` removes a submodule.
+
+#### Fasd
+
 * `j` changes the current working directory interactively.
 * Type `,`, `f,`, `d,` in front of a comma-separated query or type `,,`,  `,,f`,
 `,,d` at the end of a comma-separated query then hit <kbd>tab</kbd>.
