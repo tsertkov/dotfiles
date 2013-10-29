@@ -29,12 +29,12 @@ Source Code Pro Bold looks too heavy in Terminal. To fix this you need to skip i
 
 ## OS X
 
-* `~/dotfiles/tools/osx-tweaks` apply different OS X tweaks.
-* `~/dotfiles/tools/osx-brew` install required homebrew packages.
-* `~/dotfiles/tools/osx-update` notify via Notification center about outdated homebrew and npm packages.
-* `~/dotfiles/osx/Services/Exiftool rename image.workflow` rename selected images to according to format `%y%m%d-%H%M%S%%-c.%%e` with `exiftool`.
-* `~/dotfiles/osx/Services/Exiftool rename all images.workflow` rename all images in a folder.
-* `~/dotfiles/osx/LaunchAgents/io.github.tsertkov.osx-update.plist` run ~/dotfiles/tools/osx-update script daily.
+* `~/dotfiles/tools/osx-tweaks` Apply different OS X tweaks.
+* `~/dotfiles/tools/osx-brew` Install required homebrew packages.
+* `~/dotfiles/tools/osx-update` Notify via Notification center about outdated homebrew and npm packages.
+* `~/dotfiles/osx/Services/Exiftool rename image.workflow` Rename selected images to according to format `%y%m%d-%H%M%S%%-c.%%e` with `exiftool`.
+* `~/dotfiles/osx/Services/Exiftool rename all images.workflow` Rename all images in a folder.
+* `~/dotfiles/osx/LaunchAgents/io.github.tsertkov.osx-update.plist` Run ~/dotfiles/tools/osx-update script daily.
 
 ## Zsh (Prezto)
 
@@ -55,20 +55,20 @@ Prezto configuration framework is used to configure zsh. It is cloned into `~/do
 
 Follow these links to reach original module documentation.
 
-* [`environment`](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment)
-* [`terminal`](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal)
-* [`editor`](https://github.com/sorin-ionescu/prezto/tree/master/modules/editor)
-* [`history`](https://github.com/sorin-ionescu/prezto/tree/master/modules/history)
-* [`directory`](https://github.com/sorin-ionescu/prezto/tree/master/modules/directory)
-* [`spectrum`](https://github.com/sorin-ionescu/prezto/tree/master/modules/spectrum)
-* [`utility`](https://github.com/sorin-ionescu/prezto/tree/master/modules/utility)
-* [`completion`](https://github.com/sorin-ionescu/prezto/tree/master/modules/completion)
-* [`syntax-highlighting`](https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting)
-* [`history-substring-search`](https://github.com/sorin-ionescu/prezto/tree/master/modules/history-substring-search)
-* [`fasd`](https://github.com/sorin-ionescu/prezto/tree/master/modules/fasd)
-* [`archive`](https://github.com/sorin-ionescu/prezto/tree/master/modules/archive)
-* [`git`](https://github.com/sorin-ionescu/prezto/tree/master/modules/git)
-* [`prompt`](https://github.com/sorin-ionescu/prezto/tree/master/modules/prompt)
+* [`environment`](https://github.com/sorin-ionescu/prezto/tree/master/modules/environment) General shell options and environment variables.
+* [`terminal`](https://github.com/sorin-ionescu/prezto/tree/master/modules/terminal) Set terminal window and tab titles.
+* [`editor`](https://github.com/sorin-ionescu/prezto/tree/master/modules/editor) Command line editor key bindings.
+* [`history`](https://github.com/sorin-ionescu/prezto/tree/master/modules/history) History options and history aliases.
+* [`directory`](https://github.com/sorin-ionescu/prezto/tree/master/modules/directory) Directory options and directory aliases.
+* [`spectrum`](https://github.com/sorin-ionescu/prezto/tree/master/modules/spectrum) Easier use of 256 colors and effects.
+* [`utility`](https://github.com/sorin-ionescu/prezto/tree/master/modules/utility) General aliases and functions.
+* [`completion`](https://github.com/sorin-ionescu/prezto/tree/master/modules/completion) Tab completions from the zsh-completions project.
+* [`syntax-highlighting`](https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting) Syntax highlighting from zsh-syntax-highlighting.
+* [`history-substring-search`](https://github.com/sorin-ionescu/prezto/tree/master/modules/history-substring-search) History search from zsh-history-substring-search.
+* [`fasd`](https://github.com/sorin-ionescu/prezto/tree/master/modules/fasd) Command-line productivity booster.
+* [`archive`](https://github.com/sorin-ionescu/prezto/tree/master/modules/archive) Functions to list and extract archives.
+* [`git`](https://github.com/sorin-ionescu/prezto/tree/master/modules/git) Git aliases, functions and exposing repository status information to prompts.
+* [`prompt`](https://github.com/sorin-ionescu/prezto/tree/master/modules/prompt) Prompt themes.
 
 ### Prezto aliases and functions
 
@@ -267,3 +267,30 @@ Follow these links to reach original module documentation.
 ## Vim (Vundle)
 
 Vim plugins are managed by Vundle which is cloned into `~/dotfiles/dots/vim/bundle/vundle` from https://github.com/gmarik/vundle.
+
+### Vundle installed modules
+
+* [`Lokaltog/vim-powerline`](https://github.com/Lokaltog/vim-powerline) The ultimate vim statusline utility.
+* [`Raimondi/YAIFA`](https://github.com/Raimondi/YAIFA) Yet Another Indent Finder, Almost...
+* [`sjl/gundo.vim`](https://github.com/sjl/gundo.vim) Visualize your Vim undo tree.
+* [`tpope/vim-repeat`](https://github.com/tpope/vim-repeat) Enable repeating supported plugin maps with "."
+* [`tpope/vim-unimpaired`](https://github.com/tpope/vim-unimpaired) Pairs of handy bracket mappings.
+* [`altercation/vim-colors-solarized`](https://github.com/altercation/vim-colors-solarized) Precision colorscheme for the vim text editor.
+* [`tpope/vim-markdown`](https://github.com/tpope/vim-markdown) Markdown support.
+* [`sickill/vim-pasta`](https://github.com/sickill/vim-pasta) Pasting with indentation adjusted to destination context.
+* [`scrooloose/syntastic`](https://github.com/scrooloose/syntastic) Syntax checking hacks.
+* [`tomtom/tcomment_vim`](https://github.com/tomtom/tcomment_vim) Toggle comments.
+* [`ervandew/supertab`](https://github.com/ervandew/supertab) Insert mode completions with Tab.
+* [`tpope/vim-surround`](https://github.com/tpope/vim-surround) Quoting/parenthesizing made simple.
+* [`Raimondi/delimitMate`](https://github.com/Raimondi/delimitMate) Insert mode auto-completion for quotes, parens, brackets, etc.
+* [`nathanaelkane/vim-indent-guides`](https://github.com/nathanaelkane/vim-indent-guides) Visually displaying indent levels.
+* [`tpope/vim-git`](https://github.com/tpope/vim-git) Git support.
+* [`tpope/vim-fugitive`](https://github.com/tpope/vim-fugitive) Git wrapper.
+* [`int3/vim-extradite`](https://github.com/int3/vim-extradite) A git commit browser / git log wrapper that extends fugitive.vim.
+* [`sjl/splice.vim`](https://github.com/sjl/splice.vim) Resolving conflicts during three-way merges.
+* [`mattn/emmet-vim`](https://github.com/mattn/emmet-vim) Expanding abbreviations similar to emmet.
+* [`othree/html5.vim`](https://github.com/othree/html5.vim) HTML5 omnicomplete and syntax.
+* [`sorin-ionescu/vim-htmlvalidator`](https://github.com/sorin-ionescu/vim-htmlvalidator) HTML compiler for validating against http://validator.nu.
+* [`ChrisYip/Better-CSS-Syntax-for-Vim`](https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim) Better CSS Syntax.
+* [`groenewege/vim-less`](https://github.com/groenewege/vim-less) Syntax for LESS (dynamic CSS).
+* [`pangloss/vim-javascript`](https://github.com/pangloss/vim-javascript) Vastly improved Javascript indentation and syntax support.
