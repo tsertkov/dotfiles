@@ -81,9 +81,6 @@ Bundle 'tpope/vim-fugitive'
 " Git commit browser.
 Bundle 'int3/vim-extradite'
 
-" Gist paste.
-Bundle 'mattn/gist-vim'
-
 " Merge conflict resolution.
 Bundle 'sjl/splice.vim'
 
