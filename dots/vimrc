@@ -91,7 +91,7 @@ Bundle 'sjl/splice.vim'
 " Web Development -------------------------------------------------------- {{{
 
 " Expands condensed HTML.
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 
 " HTML langauge.
 Bundle 'othree/html5.vim'
@@ -100,19 +100,13 @@ Bundle 'othree/html5.vim'
 Bundle 'sorin-ionescu/vim-htmlvalidator'
 
 " CSS language.
-Bundle 'https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim.git'
+Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 
 " LESS (dynamic CSS) language.
-" Bundle 'groenewege/vim-less'
+Bundle 'groenewege/vim-less'
 
 " JavaScript language.
 Bundle 'pangloss/vim-javascript'
-
-" Compiler for JavaScript Lint.
-" Bundle 'vim-scripts/compilerjsl.vim'
-
-" jQuery JavaScript framework.
-" Bundle 'vim-scripts/jQuery'
 
 " }}}
 
