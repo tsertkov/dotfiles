@@ -21,7 +21,7 @@ Source Code Pro Bold looks too heavy in Terminal. To fix this you need to skip i
 
 ## Update
 
-Installer will update dotfiles is run locally:
+Installer will update dotfiles if they were already installed:
 
 ```bash
 $ ~/dotfiles/installer
