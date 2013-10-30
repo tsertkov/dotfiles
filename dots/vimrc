@@ -93,9 +93,6 @@ Bundle 'mattn/emmet-vim'
 " HTML langauge.
 Bundle 'othree/html5.vim'
 
-" Validate HTML files.
-Bundle 'sorin-ionescu/vim-htmlvalidator'
-
 " CSS language.
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 
