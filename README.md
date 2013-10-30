@@ -8,7 +8,7 @@ These are my personal taste dotfiles.
 To download and execute installer run:
 
 ```bash
-$ sh -c "$(curl https://raw.github.com/tsertkov/dotfiles/master/installer)"
+$ sh -c "$(curl -fsS https://raw.github.com/tsertkov/dotfiles/master/installer)"
 ```
 
 Installer clones github repository into `~/dotfiles`, symlinks all files and folders from `~/dotfiles/dots/` into `~` by prepending dot to original name. If dotfile already exists it will be backed up in `~/dotfiles-backup/`.
@@ -41,7 +41,7 @@ Source Code Pro Bold looks too heavy in Terminal. To fix this you need to skip i
 
 ## Zsh (Prezto)
 
-Prezto configuration framework is used to configure zsh. It is cloned into `~/dotfiles/dots/zprezto` from sorin-ionescu/prezto https://github.com/sorin-ionescu/prezto.
+Prezto configuration framework is used to configure zsh. It is cloned into `~/dotfiles/dots/zprezto` from https://github.com/sorin-ionescu/prezto.
 
 ### Custom aliases (`~/dotfiles/dots/zshrc`)
 
@@ -68,7 +68,7 @@ Prezto configuration framework is used to configure zsh. It is cloned into `~/do
 * [`history-substring-search`](https://github.com/sorin-ionescu/prezto/tree/master/modules/history-substring-search) History search from zsh-history-substring-search.
 * [`fasd`](https://github.com/sorin-ionescu/prezto/tree/master/modules/fasd) Command-line productivity booster.
 * [`archive`](https://github.com/sorin-ionescu/prezto/tree/master/modules/archive) Functions to list and extract archives.
-* [`git`](https://github.com/sorin-ionescu/prezto/tree/master/modules/git) Git aliases, functions and exposing repository status information to prompts.* 
+* [`git`](https://github.com/sorin-ionescu/prezto/tree/master/modules/git) Git aliases, functions and exposing repository status information to prompts.
 * [`prompt`](https://github.com/sorin-ionescu/prezto/tree/master/modules/prompt) Prompt themes.
 
 ### Prezto aliases and functions
@@ -387,3 +387,166 @@ Vim plugins are managed by Vundle which is cloned into `~/dotfiles/dots/vim/bund
 * [`ChrisYip/Better-CSS-Syntax-for-Vim`](https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim) Better CSS Syntax.
 * [`groenewege/vim-less`](https://github.com/groenewege/vim-less) Syntax for LESS (dynamic CSS).
 * [`pangloss/vim-javascript`](https://github.com/pangloss/vim-javascript) Vastly improved Javascript indentation and syntax support.
+
+### Vim shortcuts
+
+#### Leader keys
+
+* `,` mapleader
+* `;` maplocalleader
+
+#### Miscellaneous
+
+* `:w!!` write with sudo
+* `,<Space>` disable search match highlight
+* `D` duplicate selection
+* `<Tab>` Tab to indent in visual mode
+* `<S-Tab>` Shift+Tab to unindent
+* `,q` hard wrap paragraph
+* `,v` reselect pasted text
+* `^U` uppercase word
+* `^u` lowercase word
+* `,s` toggle spell checker
+* `,W` strip trailing whitespaces
+* `,S` faster substitute
+
+#### Folding
+
+* `,z` focus current fold
+
+#### Tab navigation
+
+* `,tt` open new tab
+* `,tc` close tab
+* `,tm` move tab
+* `,tn` open next tab
+* `,tp` open previous tab
+
+#### Window navigation
+
+* `,-` horizontal split
+* `,|` vertical split
+* `^h` left window
+* `^j` down window
+* `^k` up window
+* `^l` right window
+
+#### Text alignment
+
+* `,Al` align left
+* `,Ac` align center
+* `,Ar` align right
+
+#### Text movement
+
+* `,j` move up
+* `,k` move down
+
+#### Gundo
+
+* `,U` :GundoToggle
+
+#### TComment
+
+* `gcp` comment current block
+* `gcc` toggle comment for the current line
+* `gc` toggle comment of selected text
+
+#### Unimpaired
+
+* `[a` `:previous`
+* `]a` `:next`
+* `[A` `:first`
+* `]A` `:last`
+* `[b` `:bprevious`
+* `]b` `:bnext`
+* `[B` `:bfirst`
+* `]B` `:blast`
+* `[l` `:lprevious`
+* `]l` `:lnext`
+* `[L` `:lfirst`
+* `]L` `:llast`
+* `[<C-L>` `:lpfile`
+* `]<C-L>` `:lnfile`
+* `[q` `:cprevious`
+* `]q` `:cnext`
+* `[Q` `:cfirst`
+* `]Q` `:clast`
+* `[<C-Q>` `:cpfile` (Note that <C-Q> only works in a terminal if you disable
+* `]<C-Q>` `:cnfile` flow control: stty -ixon)
+* `[t` `:tprevious`
+* `]t` `:tnext`
+* `[T` `:tfirst`
+* `]T` `:tlast`]
+* `[f` previous file in current directory
+* `]f` next file in current directory
+* `[n` previous SCM marker
+* `]n` next SCM marker
+* `[<Space>` add blank lines above cursor
+* `]<Space>` add blank lines below cursor
+* `[e` exchange current line with lines above
+* `]e` exchange current line with lines below
+* `[oc` cursorline
+* `]oc`
+* `[od` diff
+* `]od`
+* `[oh` hlsearch
+* `]oh`
+* `[oi` ignorecase
+* `]oi`
+* `[ol` list
+* `]ol`
+* `[on` number
+* `]on`
+* `[or` relativenumber
+* `]or`
+* `[os` spell
+* `]os`
+* `[ou` cursorcolumn
+* `]ou`
+* `[ow` wrap
+* `]ow`
+* `[ox` cursorline cursorcolumn
+* `]ox`
+* `[x` XML encode
+* `]x` XML decode
+* `[u` URL encode
+* `]u` URL decode
+* `[y` C String encode
+* `]y` C String decode
+
+#### Surround
+
+* `cs` change surroundings
+* `ds` delete surroundings
+* `ys` add surroundings
+* `yss` add surroundings to current line ignoring leading whitespace
+* `S` `visual` add surroundings
+
+#### Indent Guides
+
+* `,ig` toggle indent guides
+
+#### Fugitive
+
+* `:Gstatus` `git status`
+* `:Gcommit` `git commit`
+* `:Gblame` `git blame`
+* `:Gmove` `git mv`
+* `:Ggrep` `git grep`
+* `:Gread` `git checkout -- filename`
+* `:Gwrite` `git add` when called from a work tree, or `git checkout` when called from index or history
+* `:Gbrowse` open current file on GitHub
+* `:Git` run arbitrary command
+* `:Git!` run arbitrary command and open output
+
+#### Extradite
+
+* `:Extradite` toggle commit browser in current buffer
+* `:Extradite!` toggle commit browser in a vertical split
+* `t` toggles diff visibility
+* `q` closes commit browser
+
+#### Emmet
+
+* `<c-y>,` expand abbreviation
