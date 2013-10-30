@@ -383,7 +383,6 @@ Vim plugins are managed by Vundle which is cloned into `~/dotfiles/dots/vim/bund
 * [`sjl/splice.vim`](https://github.com/sjl/splice.vim) Resolving conflicts during three-way merges.
 * [`mattn/emmet-vim`](https://github.com/mattn/emmet-vim) Expanding abbreviations similar to emmet.
 * [`othree/html5.vim`](https://github.com/othree/html5.vim) HTML5 omnicomplete and syntax.
-* [`sorin-ionescu/vim-htmlvalidator`](https://github.com/sorin-ionescu/vim-htmlvalidator) HTML compiler for validating against http://validator.nu.
 * [`ChrisYip/Better-CSS-Syntax-for-Vim`](https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim) Better CSS Syntax.
 * [`groenewege/vim-less`](https://github.com/groenewege/vim-less) Syntax for LESS (dynamic CSS).
 * [`pangloss/vim-javascript`](https://github.com/pangloss/vim-javascript) Vastly improved Javascript indentation and syntax support.
