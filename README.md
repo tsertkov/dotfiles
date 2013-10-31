@@ -1,11 +1,7 @@
 Dotfiles (zsh, vim, homebrew, os x, ...)
 ========================================
 
-![homebrew notification](http://i.imgur.com/0sFewit.png) ![npm notification](http://i.imgur.com/8F0wb5i.png)
-![zsh solarized tsv dark](http://i.imgur.com/1qsTWrN.png)
-![vim solarized dark](http://i.imgur.com/tmUZ6cR.png)
-![zsh solarized tsv light](http://i.imgur.com/66awEjm.png)
-![vim solarized light](http://i.imgur.com/isEtNcQ.png)
+![vim solarized light](http://i.imgur.com/I4sGx9r.png)
 
 ## Install
 
