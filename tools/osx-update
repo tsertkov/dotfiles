@@ -5,6 +5,9 @@ PATH=/usr/local/bin:/usr/bin
 HOMEBREW_GROUP="sh.brew"
 NPM_GROUP="org.npmjs"
 
+# Give system time to start networking
+sleep 10
+
 # Homebrew
 if which brew >/dev/null 2>&1; then
   out="$(brew update 2>&1)"
