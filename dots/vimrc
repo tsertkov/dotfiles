@@ -293,22 +293,23 @@ try
     " Use a dark theme if luminance is less than 30%.
     if luminance < (65535 * 0.3)
         set background=dark
-        colorscheme solarized
     else
         set background=light
-        colorscheme solarized
     endif
 catch
-    silent execute "!echo 'Error: Could not set prefered color scheme'"
-    colorscheme default
+    " Dark background fallback.
+    set background=dark
 endtry
+
+" Select solarized colorscheme.
+colorscheme solarized
 
 " }}}
 " Graphical Interface ---------------------------------------------------- {{{
 
 if has('gui_running')
     " Use a good font.
-    set guifont=Monaco\ for\ Powerline:h12
+    set guifont=Source\ Code\ Pro:h14
 
     " Enable menu bar.
     set guioptions+=m
@@ -330,6 +331,9 @@ if has('gui_running')
 
     " Do not auto copy selection to clipboard.
     set guioptions-=a
+
+    " Initial window size.
+    set lines=25 columns=80
 
     if has('gui_macvim')
         " Transparent background.
