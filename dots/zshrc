@@ -1,3 +1,6 @@
+# Add custom zsh functions folder
+fpath=(~/dotfiles/zfunctions $fpath)
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -17,38 +20,12 @@ alias -g L='|less'
 alias s='screen -d -RR'
 alias htop='sudo htop'
 
-# Automatically select light/dark prompt theme based
-# on terminal background colode luminance.
-function {
-  local COEFFICIENTS
-  local colors_string
-  local colors
-  local luminance
-  local background
-
-  COEFFICIENTS=(0.2126 0.7152 0.0722)
-
-  if [ $TERM_PROGRAM = 'Apple_Terminal' ]; then
-    colors_string=$(osascript -e 'tell application "Terminal" to get background color of current settings of selected tab of front window')
-  elif [ $TERM_PROGRAM = 'iTerm.app' ]; then
-    colors_string=$(osascript -e 'tell application "iTerm.app" to get background color of current session of current terminal')
-  else
-    prompt tsv dark
-    return
-  fi
-
-  colors=("${(s/, /)colors_string}")
-  luminance=0
-
-  for i in 1 2 3; do
-  (( luminance += COEFFICIENTS[i] * colors[i]))
-  done
-
-  if (( luminance < (65535 * 0.3) )); then
-    background=dark
-  else
-    background=light
-  fi
-
-  prompt tsv $background
-}
+# Register and set custom tsv prompt theme automatically
+# selecting theme color 'light' or 'dark' based on
+# terminal background color luminance if available
+prompt_themes+='tsv'
+if (( $(term_luminance) > 30 )); then
+  prompt tsv light
+else
+  prompt tsv dark
+fi

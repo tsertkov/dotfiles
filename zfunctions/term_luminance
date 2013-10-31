@@ -1,0 +1,32 @@
+# Prints terminal background color luminance as integer 0..100
+term_luminance () {
+  if [[ "$OSTYPE" != darwin* ]]; then
+    echo 0
+    return 1
+  fi
+
+  local colors
+
+  if [ $TERM_PROGRAM = 'Apple_Terminal' ]; then
+    colors=$(osascript -e 'tell application "Terminal" to get background color of current settings of selected tab of front window')
+  elif [ $TERM_PROGRAM = 'iTerm.app' ]; then
+    colors=$(osascript -e 'tell application "iTerm.app" to get background color of current session of current terminal')
+  else
+    echo 0
+    return 1
+  fi
+
+  local coefficients
+  local luminance
+  local background
+
+  colors=("${(s/, /)colors}")
+  coefficients=(0.2126 0.7152 0.0722)
+  luminance=0
+
+  for i (1 2 3) (( luminance += coefficients[i] * colors[i] ))
+  luminance=$(( luminance / 65535 * 100 ))
+  integer luminance
+
+  echo $luminance
+}
