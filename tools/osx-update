@@ -21,6 +21,10 @@ if which brew >/dev/null 2>&1; then
     upgrades="$(brew outdated 2>&1)"
     num=$(echo "$upgrades" | sed -n '$=')
     if [ -n "$upgrades" ]; then
+      # make comma separated list of outdated package names
+      upgrades=$(echo "$upgrades" \
+        | tr '\n' ', ' \
+        | sed -e 's/,$//' -e 's/,/, /g')
       terminal-notifier \
         -activate com.apple.Terminal \
         -group "$HOMEBREW_GROUP" \
