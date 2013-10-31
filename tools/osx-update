@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # Notify about Homebrew and Npm updates via OS X Notification Center
-PATH=/usr/local/bin:/usr/bin
+PATH=/usr/local/bin:/usr/bin:/bin
 
 HOMEBREW_GROUP="sh.brew"
 NPM_GROUP="org.npmjs"
