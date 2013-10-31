@@ -1,7 +1,10 @@
 Dotfiles (zsh, vim, homebrew, os x, ...)
 ========================================
 
-These are my personal taste dotfiles.
+![zsh solarized tsv dark](http://i.imgur.com/1qsTWrN.png)
+![vim solarized dark](http://i.imgur.com/tmUZ6cR.png)
+![zsh solarized tsv light](http://i.imgur.com/66awEjm.png)
+![vim solarized light](http://i.imgur.com/isEtNcQ.png)
 
 ## Install
 
