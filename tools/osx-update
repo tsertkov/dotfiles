@@ -23,6 +23,7 @@ if which brew >/dev/null 2>&1; then
     if [ -n "$upgrades" ]; then
       # make comma separated list of outdated package names
       upgrades=$(echo "$upgrades" \
+        | sort -u \
         | tr '\n' ', ' \
         | sed -e 's/,$//' -e 's/,/, /g')
       terminal-notifier \
@@ -42,6 +43,7 @@ if which npm >/dev/null 2>&1; then
     # make comma separated list of outdated package names
     upgrades=$(echo "$upgrades" \
       | sed -n -e 's/^\(.*\)@.*$/\1/p' \
+      | sort -u \
       | tr '\n' ', ' \
       | sed -e 's/,$//' -e 's/,/, /g')
     terminal-notifier \
