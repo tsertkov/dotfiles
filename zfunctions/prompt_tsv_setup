@@ -98,14 +98,11 @@ function prompt_tsv_setup {
 
   # Define hostcolor
   if [ -n "${SSH_CLIENT+xxx}" ]; then
-    _prompt_tsv_hostcolor="yellow"
-    _prompt_tsv_prefix="%F{yellow}ssh://%f"
-  else
-    _prompt_tsv_hostcolor="grey"
+    _prompt_tsv_prefix="ssh://"
   fi
 
   # Define prompts.
-  PROMPT='%K{${_prompt_tsv_bgcolor}}${_prompt_tsv_prefix}%(!.%F{red}.%F{green})%n%f%F{${_prompt_tsv_hostcolor}}@%m%f:%F{cyan}${_prompt_tsv_pwd}%f${git_info:+${(e)git_info[prompt]}}%E%k${prompt_newline}${editor_info[keymap]} '
+  PROMPT='%K{${_prompt_tsv_bgcolor}}${_prompt_tsv_prefix}%(!.%F{red}.%F{green})%n%f@%m:%F{cyan}${_prompt_tsv_pwd}%f${git_info:+${(e)git_info[prompt]}}%E%k${prompt_newline}${editor_info[keymap]} '
   RPROMPT='${editor_info[overwrite]}%(?:: %F{red}⏎%f)${VIM:+" %B%F{green}V%f%b"}${git_info[rprompt]}'
   SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 }
