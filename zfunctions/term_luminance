@@ -7,9 +7,9 @@ term_luminance () {
 
   local colors
 
-  if [ $TERM_PROGRAM = 'Apple_Terminal' ]; then
+  if [ "$TERM_PROGRAM" = 'Apple_Terminal' ]; then
     colors=$(osascript -e 'tell application "Terminal" to get background color of current settings of selected tab of front window')
-  elif [ $TERM_PROGRAM = 'iTerm.app' ]; then
+  elif [ "$TERM_PROGRAM" = 'iTerm.app' ]; then
     colors=$(osascript -e 'tell application "iTerm.app" to get background color of current session of current terminal')
   else
     echo 0
