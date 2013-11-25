@@ -2,6 +2,7 @@
 # Notify about Homebrew and Npm updates via OS X Notification Center
 PATH=/usr/local/bin:/usr/bin:/bin
 
+# Notification groups
 HOMEBREW_GROUP="sh.brew"
 NPM_GROUP="org.npmjs"
 
@@ -42,10 +43,10 @@ if which npm >/dev/null 2>&1; then
   if [ $num -gt 0 ]; then
     # make comma separated list of outdated package names
     upgrades=$(echo "$upgrades" \
-      | sed -n -e 's/^\(.*\)@.*$/\1/p' \
+      | cut -d \  -f 1 \
       | sort -u \
-      | tr '\n' ', ' \
-      | sed -e 's/,$//' -e 's/,/, /g')
+      | tr '\n' ',' \
+      | sed 's/,$//;s/,/, /g')
     terminal-notifier \
       -activate com.apple.Terminal \
       -group "$NPM_GROUP" \
