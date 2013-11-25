@@ -38,7 +38,7 @@ fi
 
 # Npm
 if which npm >/dev/null 2>&1; then
-  upgrades="$(npm -g outdated 2>/dev/null)"
+  upgrades="$(npm outdated -g 2>/dev/null)"
   num=$(echo "$upgrades" | sed -n '$=')
   if [ $num -gt 0 ]; then
     # make comma separated list of outdated package names
