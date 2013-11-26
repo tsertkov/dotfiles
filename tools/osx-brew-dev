@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+# Install homebrew packages for web development system
+
+# Install php
+# NB! /etc/httpd.conf should be manually updated to load new libphp5.so
+brew tap homebrew/dupes
+brew tap josegonzalez/homebrew-php
+brew install php55
+
+# Install node
+brew install node
+
+# Install node dev packages
+npm install -g grunt-cli
