@@ -6,6 +6,7 @@
 brew tap homebrew/dupes
 brew tap josegonzalez/homebrew-php
 brew install php55
+brew install composer
 
 # Install node
 brew install node
