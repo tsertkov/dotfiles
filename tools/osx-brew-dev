@@ -8,8 +8,13 @@ brew tap josegonzalez/homebrew-php
 brew install php55
 brew install composer
 
+# Pear packages
+pear install PHP_CodeSniffer
+
 # Install node
 brew install node
 
 # Install node dev packages
 npm install -g grunt-cli
+npm install -g less
+npm install -g bower
