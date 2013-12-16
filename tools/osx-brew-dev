@@ -11,6 +11,9 @@ brew install composer
 # Pear packages
 pear install PHP_CodeSniffer
 
+# Apache Ant
+brew install ant
+
 # Install node
 brew install node
 
