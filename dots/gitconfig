@@ -1,20 +1,63 @@
-[core]
-  excludesfile = ~/.gitignore
-[color]
-  ui = true
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-[format]
-  pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+[alias]
+  ls = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  lds = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+  ld = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+  le = log --graph --oneline --decorate
+  la = "!git config -l | grep alias | cut -c 7-"
+  filelog = log -u
+  fl = log -u
 [user]
-  email = tsertkov@gmail.com
   name = Aleksandr Tsertkov
+  email = tsertkov@gmail.com
+[color]
+  ui = auto
+[format]
+  numbered = auto
+[core]
+  legacyheaders = false
+  excludesfile = ~/.gitignore
+  whitespace = trailing-space,space-before-tab
+  quotepath = false
+  autocrlf = input
+  safecrlf = true
+[apply]
+  whitespace = warn
+[repack]
+  usedeltabaseoffset = true
+[branch]
+  autosetupmerge = true
+[pager]
+  status = false
+[github]
+  ssl = true
+[tig]
+  show-date = relative
+  author-width = 8
+  show-rev-graph = yes
+[advice]
+  pushNonFastForward = false
+  statusHints = false
 [push]
-  default = simple
+  default = tracking
+[rerere]
+  enabled = true
+[diff]
+  tool = vimdiff
+  mnemonicprefix = true
+  renames = copies
+[difftool]
+  prompt = false
+[merge]
+  tool = fugitive
+[mergetool]
+  prompt = false
+[mergetool "vimdiff3"]
+  cmd = vim -f -d -c \"wincmd J\" -c \"wincmd =\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+  trustExitCode = false
+[mergetool "fugitive"]
+  cmd = vim -f -c \"Gdiff\" \"$MERGED\" -c \"wincmd =\"
+  trustExitCode = false
+[mergetool "splice"]
+  cmd = vim -f -c \"SpliceInit\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+  trustExitCode = true
