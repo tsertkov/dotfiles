@@ -17,10 +17,6 @@ alias lla='ls -la'
 alias lm='lla | "$PAGER"'
 
 alias -g L='|less'
-alias s='screen -d -RR'
-alias htop='sudo htop'
-
-bindkey -s '\el' 'ls\n'
 
 # Register and set custom tsv prompt theme automatically
 # selecting theme color 'light' or 'dark' based on
