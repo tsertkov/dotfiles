@@ -8,7 +8,7 @@ Dotfiles (zsh, vim, homebrew, os x, ...)
 To download and execute installer run:
 
 ```bash
-$ sh -c "$(curl -fsS https://raw.github.com/tsertkov/dotfiles/master/installer)"
+$ sh -c "$(curl -fsS https://raw.githubusercontent.com/tsertkov/dotfiles/master/installer)"
 ```
 
 Installer clones github repository into `~/dotfiles`, symlinks all files and folders from `~/dotfiles/dots/` into `~` by prepending dot to original name. If dotfile already exists it will be backed up in `~/dotfiles-backup/`.
