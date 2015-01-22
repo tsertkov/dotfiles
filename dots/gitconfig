@@ -61,3 +61,5 @@
 [mergetool "splice"]
   cmd = vim -f -c \"SpliceInit\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
   trustExitCode = true
+[credential]
+  helper = osxkeychain
