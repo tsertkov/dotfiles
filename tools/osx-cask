@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+# Install brew cask packages
+brew cask install google-chrome
+brew cask install iterm2
+brew cask install slack
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install skype
+brew cask install webstorm
+brew cask install java
+brew cask install virtualbox
+brew cask install vagrant

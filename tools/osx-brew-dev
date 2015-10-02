@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-# Install homebrew packages for web development system
-
-brew cask install virtualbox
-brew cask install vagrant
-
-# Install node
-brew install node
