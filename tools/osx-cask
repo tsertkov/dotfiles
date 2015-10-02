@@ -8,3 +8,4 @@ brew cask install vagrant
 brew cask install skype
 brew cask install webstorm
 brew cask install java
+brew cask install seil
