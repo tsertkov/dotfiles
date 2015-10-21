@@ -24,6 +24,8 @@ brew install exiftool
 brew install terminal-notifier
 brew install the_silver_searcher
 brew install watch
+brew install pass
+brew install p7zip
 
 # Install tmux
 brew install tmux
