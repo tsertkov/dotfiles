@@ -12,3 +12,4 @@ brew cask install java
 brew cask install webstorm
 brew cask install sourcetree
 brew cask install seil
+brew cask install flux
