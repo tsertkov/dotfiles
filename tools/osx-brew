@@ -26,6 +26,7 @@ brew install the_silver_searcher
 brew install watch
 brew install pass
 brew install p7zip
+brew install jsonpp
 
 # Install tmux
 brew install tmux
