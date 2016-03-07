@@ -27,6 +27,7 @@
   usedeltabaseoffset = true
 [branch]
   autosetupmerge = true
+  autosetuprebase = always
 [pager]
   status = false
 [github]
