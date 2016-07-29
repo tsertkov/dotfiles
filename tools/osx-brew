@@ -13,6 +13,7 @@ fi
 
 # Install Cask
 brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
 
 # Install core packages
 brew install lesspipe
@@ -27,6 +28,8 @@ brew install watch
 brew install pass
 brew install p7zip
 brew install jsonpp
+brew install jq
+brew install lnav
 
 # Install tmux
 brew install tmux
