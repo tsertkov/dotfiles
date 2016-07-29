@@ -277,7 +277,7 @@ try
     if match($TERM_PROGRAM, 'Apple_Terminal') != -1
         let term_bg_rgb = split(system("osascript -e 'tell application \"Terminal\" to get background color of current settings of selected tab of front window'"), ', ')
     elseif match($TERM_PROGRAM, 'iTerm') != -1
-        let term_bg_rgb = split(system("osascript -e 'tell application \"iTerm\" to get background color of current session of current terminal'"), ', ')
+        let term_bg_rgb = split(system("osascript -e 'tell application \"iTerm\" to get background color of current session of current window'"), ', ')
     endif
 
     " Calculate luminance.

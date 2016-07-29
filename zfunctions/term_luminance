@@ -10,7 +10,7 @@ term_luminance () {
   if [ "$TERM_PROGRAM" = 'Apple_Terminal' ]; then
     colors=$(osascript -e 'tell application "Terminal" to get background color of current settings of selected tab of front window')
   elif [ "$TERM_PROGRAM" = 'iTerm.app' ]; then
-    colors=$(echo "tell application \"iTerm\"\n\ttell current session of current window\n\t\tget background color\n\tend tell\nend tell" | osascript)
+    colors=$(osascript -e 'tell application "iTerm" to get background color of current session of current window')
   else
     echo 0
     return 1
