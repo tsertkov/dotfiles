@@ -482,7 +482,7 @@
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
-	<string>FD75931E-C681-4518-9222-FE7EE10391F2</string>
+	<string>7CAFBE78-A842-464E-84D6-1D18A23E88A5</string>
 	<key>HotKeyTogglesWindow</key>
 	<true/>
 	<key>Hotkey</key>
@@ -515,14 +515,52 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
+	<key>NSScrollViewShouldScrollUnderTitlebar</key>
+	<false/>
+	<key>NSTableView Columns KeyBingingTable</key>
+	<array>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATCG
+		</data>
+		<string>198</string>
+		<data>
+		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
+		hAErATGG
+		</data>
+		<string>322</string>
+	</array>
+	<key>NSTableView Hidden Columns KeyBingingTable</key>
+	<array/>
+	<key>NSTableView Sort Ordering KeyBingingTable</key>
+	<array/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
+	<key>NSWindow Frame NSFontPanel</key>
+	<string>348 333 651 132 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>236 303 924 485 0 0 1440 877 </string>
+	<string>189 338 606 456 0 0 1440 877 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>64 681 384 129 0 0 1440 877 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>431 363 620 392 0 0 1440 877 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>77 104 937 512 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>383 357 570 426 0 0 1440 877 </string>
+	<string>463 63 570 427 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>189 196 570 426 0 0 1440 877 </string>
+	<string>471 386 570 427 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>204 451 570 426 0 0 1440 877 </string>
+	<string>354 63 570 427 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>76 431 570 427 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 4</key>
+	<string>75 317 570 427 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 5</key>
+	<string>348 422 570 426 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_7CAFBE78-A842-464E-84D6-1D18A23E88A5</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_AA5B8F0F-DAD8-4D32-B62F-D514585D9BC1</key>
@@ -716,7 +754,7 @@
 			<key>Blink Allowed</key>
 			<true/>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
@@ -1266,6 +1304,8 @@
 			<false/>
 			<key>Use Italic Font</key>
 			<true/>
+			<key>Use Non-ASCII Font</key>
+			<false/>
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
@@ -1460,11 +1500,11 @@
 			<key>Blink Allowed</key>
 			<true/>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<false/>
 			<key>Blur Radius</key>
-			<real>15</real>
+			<real>14.195102163461538</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -2010,6 +2050,8 @@
 			<false/>
 			<key>Use Italic Font</key>
 			<true/>
+			<key>Use Non-ASCII Font</key>
+			<false/>
 			<key>Vertical Spacing</key>
 			<real>0.99582982063293457</real>
 			<key>Visual Bell</key>
@@ -2020,10 +2062,26 @@
 			<string></string>
 		</dict>
 	</array>
+	<key>NoSyncHaveShownPromoWithId_4</key>
+	<true/>
+	<key>NoSyncInstallationId</key>
+	<string>B28EBC65-CF48-41E5-8BB2-C4DC5DD73B03</string>
+	<key>NoSyncLastTipTime</key>
+	<real>491472397.75631398</real>
+	<key>NoSyncPermissionToShowTip</key>
+	<true/>
+	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
+	<real>490008490.837892</real>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>465403067.96764201</real>
+	<real>477591444.91424698</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>465403067.96784902</real>
+	<real>489883443.75178403</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
@@ -2072,7 +2130,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/Tsertkov/dotfiles/appsettings/iterm2</string>
+	<string>/Users/401140/dotfiles/appsettings/iterm2</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2085,12 +2143,14 @@
 	<integer>3</integer>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
+	<key>SUFeedAlternateAppNameKey</key>
+	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.com/appcasts/final.xml</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=52</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-10-01T14:36:50Z</date>
+	<date>2016-07-29T08:47:01Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -2100,13 +2160,15 @@
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
-	<false/>
+	<true/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.20883664488792419</real>
+	<real>0.19467648237179486</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
 	<integer>6</integer>
+	<key>TabStyle</key>
+	<integer>0</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>ThreeFingerEmulates</key>
@@ -2130,7 +2192,7 @@
 	<key>WebKitDefaultFontSize</key>
 	<integer>11</integer>
 	<key>WebKitStandardFont</key>
-	<string>Lucida Grande</string>
+	<string>.AppleSystemUIFont</string>
 	<key>WindowNumber</key>
 	<false/>
 	<key>WindowStyle</key>
@@ -2138,6 +2200,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>2.1.1</string>
+	<string>3.0.5</string>
 </dict>
 </plist>
