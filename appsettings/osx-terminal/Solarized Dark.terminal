@@ -157,7 +157,7 @@
 	AAAAAAAAzQ==
 	</data>
 	<key>BlinkText</key>
-	<false/>
+	<true/>
 	<key>CommandString</key>
 	<string>prompt tsv dark &amp;&amp; clear</string>
 	<key>CursorColor</key>
@@ -232,7 +232,7 @@
 	<key>UseBoldFonts</key>
 	<true/>
 	<key>UseBrightBold</key>
-	<false/>
+	<true/>
 	<key>blackColour</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
