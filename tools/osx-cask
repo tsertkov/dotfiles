@@ -13,3 +13,4 @@ brew cask install webstorm
 brew cask install sourcetree
 brew cask install seil
 brew cask install flux
+brew cask install sublime-text3
