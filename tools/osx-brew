@@ -30,6 +30,7 @@ brew install p7zip
 brew install jsonpp
 brew install jq
 brew install lnav
+brew install ssh-copy-id
 
 # Install tmux
 brew install tmux
