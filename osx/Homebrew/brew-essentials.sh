@@ -17,6 +17,8 @@ brew install \
   jsonpp \
   jq \
   lnav \
+  pinentry-mac \
+  homebrew/versions/gnupg21
 
 # Should be installed last to make sure user will read messages
 # about manual postinstall actions required to use zsh
