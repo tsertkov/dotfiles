@@ -11,6 +11,7 @@ brew install \
   ssh-copy-id \
   exiftool \
   pass \
+  pwgen \
   terminal-notifier \
   the_silver_searcher \
   p7zip \
