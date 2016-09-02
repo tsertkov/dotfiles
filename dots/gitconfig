@@ -1,66 +1,66 @@
 [alias]
-  ls = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-  lds = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
-  ld = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-  le = log --graph --oneline --decorate
-  la = "!git config -l | grep alias | cut -c 7-"
-  filelog = log -u
-  fl = log -u
+	ls = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lds = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	ld = log --graph --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	le = log --graph --oneline --decorate
+	la = "!git config -l | grep alias | cut -c 7-"
+	filelog = log -u
+	fl = log -u
 [user]
-  name = Aleksandr Tsertkov
-  email = tsertkov@gmail.com
+	name = Aleksandr Tsertkov
+	email = tsertkov@gmail.com
 [color]
 	ui = always
 [format]
-  numbered = auto
+	numbered = auto
 [core]
-  legacyheaders = false
-  excludesfile = ~/.gitignore
-  whitespace = trailing-space,space-before-tab
-  quotepath = false
-  autocrlf = input
-  safecrlf = true
+	legacyheaders = false
+	excludesfile = ~/.gitignore
+	whitespace = trailing-space,space-before-tab
+	quotepath = false
+	autocrlf = input
+	safecrlf = true
 [apply]
-  whitespace = warn
+	whitespace = warn
 [repack]
-  usedeltabaseoffset = true
+	usedeltabaseoffset = true
 [branch]
-  autosetupmerge = true
-  autosetuprebase = always
+	autosetupmerge = true
+	autosetuprebase = always
 [pager]
-  status = false
+	status = false
 [github]
-  ssl = true
+	ssl = true
 [tig]
-  show-date = relative
-  author-width = 8
-  show-rev-graph = yes
+	show-date = relative
+	author-width = 8
+	show-rev-graph = yes
 [advice]
-  pushNonFastForward = false
-  statusHints = false
+	pushNonFastForward = false
+	statusHints = false
 [push]
-  default = tracking
+	default = tracking
 [rerere]
-  enabled = true
+	enabled = true
 [diff]
-  tool = vimdiff
-  mnemonicprefix = true
-  renames = copies
+	tool = vimdiff
+	mnemonicprefix = true
+	renames = copies
 [difftool]
-  prompt = false
+	prompt = false
 [merge]
-  tool = fugitive
+	tool = fugitive
 [mergetool]
-  prompt = false
+	prompt = false
 [mergetool "vimdiff3"]
-  cmd = vim -f -d -c \"wincmd J\" -c \"wincmd =\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
-  trustExitCode = false
+	cmd = vim -f -d -c \"wincmd J\" -c \"wincmd =\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	trustExitCode = false
 [mergetool "fugitive"]
-  cmd = vim -f -c \"Gdiff\" \"$MERGED\" -c \"wincmd =\"
-  trustExitCode = false
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\" -c \"wincmd =\"
+	trustExitCode = false
 [mergetool "splice"]
-  cmd = vim -f -c \"SpliceInit\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-  trustExitCode = true
+	cmd = vim -f -c \"SpliceInit\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = true
 [credential]
-  helper = osxkeychain
+	helper = osxkeychain
