@@ -11,7 +11,7 @@
   name = Aleksandr Tsertkov
   email = tsertkov@gmail.com
 [color]
-  ui = auto
+	ui = always
 [format]
   numbered = auto
 [core]
