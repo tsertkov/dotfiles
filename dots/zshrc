@@ -32,3 +32,5 @@ fi
 gpg-connect-agent /bye
 export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
 
+# dockviz: Visualizing Docker Data
+alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
