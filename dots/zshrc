@@ -17,6 +17,8 @@ alias lla='ls -la'
 alias lm='lla | "$PAGER"'
 
 alias -g L='|less'
+alias p='pass'
+alias pc='pass -c'
 
 # Register and set custom tsv prompt theme automatically
 # selecting theme color 'light' or 'dark' based on
