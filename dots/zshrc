@@ -40,3 +40,7 @@ alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock 
 # nvm initialization
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
+
+# key mappings
+bindkey "\e\e[D" backward-word # alt + <-
+bindkey "\e\e[C" forward-word # alt + ->

@@ -541,11 +541,11 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 139 606 456 0 0 1280 777 </string>
+	<string>269 86 697 509 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>167 316 918 381 0 0 1280 777 </string>
+	<string>55 164 1016 502 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>83 88 570 427 0 0 1280 777 </string>
+	<string>710 52 570 725 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>152 325 570 452 0 0 1280 777 </string>
 	<key>NeverWarnAboutShortLivedSessions_7CAFBE78-A842-464E-84D6-1D18A23E88A5</key>
@@ -1136,7 +1136,7 @@
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Rows</key>
 			<integer>25</integer>
 			<key>Screen</key>
@@ -1882,7 +1882,7 @@
 			<key>Only The Default BG Color Uses Transparency</key>
 			<true/>
 			<key>Option Key Sends</key>
-			<integer>2</integer>
+			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
@@ -2077,21 +2077,29 @@
 			<false/>
 			<key>Ansi 0 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.19370138645172119</real>
+				<real>0.096401706337928772</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.15575926005840302</real>
+				<real>0.080431222915649414</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.0041381246410310268</real>
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.14145714044570923</real>
+				<real>0.18553587794303894</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.10840655118227005</real>
+				<real>0.39396196603775024</real>
 				<key>Red Component</key>
-				<real>0.81926977634429932</real>
+				<real>0.90184736251831055</real>
 			</dict>
 			<key>Ansi 10 Color</key>
 			<dict>
@@ -2167,12 +2175,16 @@
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.78231418132781982</real>
+				<real>0.99482351541519165</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.46265947818756104</real>
+				<real>0.58401799201965332</real>
 				<key>Red Component</key>
-				<real>0.12754884362220764</real>
+				<real>0.15587732195854187</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
@@ -2203,21 +2215,29 @@
 			</dict>
 			<key>Ansi 8 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.15170273184776306</real>
+				<real>0.097615063190460205</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.11783610284328461</real>
+				<real>0.079001344740390778</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.0039902119897305965</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.073530435562133789</real>
+				<real>0.024933738633990288</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.21325300633907318</real>
+				<real>0.23240102827548981</real>
 				<key>Red Component</key>
-				<real>0.74176257848739624</real>
+				<real>0.90038472414016724</real>
 			</dict>
 			<key>Automatically Log</key>
 			<false/>
@@ -2236,6 +2256,19 @@
 			<false/>
 			<key>Background Image Location</key>
 			<string>/Users/tsertkov/Documents/green-texture-wallpaper.jpg</string>
+			<key>Badge Color</key>
+			<dict>
+				<key>Alpha Component</key>
+				<real>0.5</real>
+				<key>Blue Component</key>
+				<real>0.0</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
+				<key>Green Component</key>
+				<real>0.0</real>
+				<key>Red Component</key>
+				<real>1</real>
+			</dict>
 			<key>Badge Text</key>
 			<string></string>
 			<key>Blend</key>
@@ -2275,6 +2308,19 @@
 				<real>0.50962930917739868</real>
 				<key>Red Component</key>
 				<real>0.44058024883270264</real>
+			</dict>
+			<key>Cursor Guide Color</key>
+			<dict>
+				<key>Alpha Component</key>
+				<real>0.25</real>
+				<key>Blue Component</key>
+				<real>1</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
+				<key>Green Component</key>
+				<real>0.91000000000000003</real>
+				<key>Red Component</key>
+				<real>0.65000000000000002</real>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
@@ -2617,6 +2663,19 @@
 					<string>[1;5F</string>
 				</dict>
 			</dict>
+			<key>Link Color</key>
+			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
+				<key>Blue Component</key>
+				<real>0.67800000000000005</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
+				<key>Green Component</key>
+				<real>0.27000000000000002</real>
+				<key>Red Component</key>
+				<real>0.023</real>
+			</dict>
 			<key>Log Directory</key>
 			<string></string>
 			<key>Minimum Contrast</key>
@@ -2638,7 +2697,7 @@
 			<key>Prompt Before Closing 2</key>
 			<integer>0</integer>
 			<key>Right Option Key Sends</key>
-			<integer>0</integer>
+			<integer>2</integer>
 			<key>Rows</key>
 			<integer>25</integer>
 			<key>Screen</key>
@@ -2811,6 +2870,10 @@
 			<string></string>
 		</dict>
 	</array>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
+	<true/>
+	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
+	<integer>0</integer>
 	<key>NoSyncInstallationId</key>
 	<string>645495F0-367A-4342-BA91-696A51468EC8</string>
 	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
@@ -2889,7 +2952,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-09-01T19:54:19Z</date>
+	<date>2016-09-02T22:03:34Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2942,5 +3005,9 @@
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
 	<string>3.0.7</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>2</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>

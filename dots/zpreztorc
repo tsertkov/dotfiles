@@ -17,6 +17,5 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'prompt'
 
-zstyle ':prezto:module:editor' key-bindings 'vi'
 zstyle ':prezto:module:prompt' theme 'tsv' 'dark'
 zstyle ':prezto:module:terminal' auto-title 'yes'
