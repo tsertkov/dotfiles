@@ -16,4 +16,7 @@ brew cask install \
   viber \
   skype \
   docker \
-  postman
+  postman \
+  sketch \
+  sequel-pro \
+  vlc

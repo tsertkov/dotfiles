@@ -3,6 +3,5 @@
 brew cask install \
   sublime-text \
   seil \
-  flux \
-  vlc
+  flux
 
