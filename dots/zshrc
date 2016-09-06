@@ -32,7 +32,10 @@ fi
 
 # gpg21 launch gpg-agent
 gpg-connect-agent /bye
-export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+fi
+export GPG_TTY=$(tty)
 
 # dockviz: Visualizing Docker Data
 alias dockviz="docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz"
