@@ -47,5 +47,7 @@ export NVM_DIR="$HOME/.nvm"
 # key mappings
 bindkey "\e\e[D" backward-word # alt + <-
 bindkey "\e\e[C" forward-word # alt + ->
+bindkey "^[^[[A"  _history-complete-older   # alt + up
+bindkey "^[^[[B"  _history-complete-newer   # alt + down
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
