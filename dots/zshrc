@@ -45,8 +45,8 @@ export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
 # key mappings
-bindkey "\e\e[D" backward-word # alt + <-
-bindkey "\e\e[C" forward-word # alt + ->
+bindkey "^[^[[C"  forward-word              # alt + right
+bindkey "^[^[[D"  backward-word             # alt + left
 bindkey "^[^[[A"  _history-complete-older   # alt + up
 bindkey "^[^[[B"  _history-complete-newer   # alt + down
 
