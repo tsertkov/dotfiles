@@ -1,5 +1,4 @@
 zstyle ':prezto:*:*' color 'yes'
-zstyle ':prezto:load' zfunction 'tsv' 'term_luminance'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'terminal' \
@@ -15,7 +14,9 @@ zstyle ':prezto:load' pmodule \
   'osx' \
   'syntax-highlighting' \
   'history-substring-search' \
-  'prompt'
+  'prompt' \
+  'gpg' \
+  'autosuggestions'
 
-zstyle ':prezto:module:prompt' theme 'tsv' 'dark'
+zstyle ':prezto:module:prompt' theme 'sorin'
 zstyle ':prezto:module:terminal' auto-title 'yes'
