@@ -17,7 +17,7 @@ if [ -d "$ROOT" ]; then
   echo $START_TXT
   cd "$ROOT"
   git pull
-  git submodule update --recursive
+  git submodule update --init --recursive
 else
   START_TXT="Installing dotfiles..."
   END_TXT="Dotfiles were installed successfully"
