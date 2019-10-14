@@ -18,6 +18,7 @@ alias lla='ls -la'
 alias lm='lla | "$PAGER"'
 
 alias -g L='|less'
+alias pass='gopass'
 alias p='pass'
 alias pc='pass -c'
 
