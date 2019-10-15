@@ -1,4 +1,0 @@
-defaults write com.apple.universalaccess closeViewPanningMode -int 0
-defaults write com.apple.universalaccess sloseViewScrollWheelToggle -int 1
-defaults write com.apple.universalaccess closeViewSmoothImages -int 0
-defaults write com.apple.universalaccess closeViewZoomFollowsFocus -int 0
