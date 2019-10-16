@@ -31,3 +31,6 @@ bindkey "^[^[[D"  backward-word             # alt + left
 bindkey "^[^[[A"  _history-complete-older   # alt + up
 bindkey "^[^[[B"  _history-complete-newer   # alt + down
 
+# direnv
+eval "$(direnv hook zsh)"
+
