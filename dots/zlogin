@@ -6,11 +6,10 @@ fi
 # aliases
 alias cat=bat
 alias less=bat
-alias ls=exa
 alias p='gopass'
 alias pc='gopass -c'
-alias ll='ls -l'
-alias lla='ls -la'
+alias ll='exa -l'
+alias lla='exa -la'
 alias -g L='|less'
 
 # key mappings
