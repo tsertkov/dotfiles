@@ -11,6 +11,9 @@ gpgconf --launch gpg-agent
 unsetopt SHARE_HISTORY
 
 # aliases
+alias cat=bat
+alias less=bat
+alias ls=exa
 alias l='ls'
 alias la='ls -a'
 alias ll='ls -l'
