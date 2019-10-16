@@ -1,9 +1,26 @@
-#
-# Executes commands at login post-zshrc.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# aliases
+alias cat=bat
+alias less=bat
+alias ls=exa
+alias p='gopass'
+alias pc='gopass -c'
+alias ll='ls -l'
+alias lla='ls -la'
+alias -g L='|less'
+
+# key mappings
+bindkey "^[^[[C"  forward-word              # alt + right
+bindkey "^[^[[D"  backward-word             # alt + left
+bindkey "^[^[[A"  _history-complete-older   # alt + up
+bindkey "^[^[[B"  _history-complete-newer   # alt + down
+
+# direnv
+eval "$(direnv hook zsh)"
 
 # Execute code that does not affect the current session in the background.
 {
