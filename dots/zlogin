@@ -11,6 +11,7 @@ alias pc='gopass -c'
 alias ll='exa -l'
 alias lla='exa -la'
 alias -g L='|less'
+alias curl-hdr='curl -Ss -D - -o /dev/null'
 
 # key mappings
 bindkey "^[^[[C"  forward-word              # alt + right
