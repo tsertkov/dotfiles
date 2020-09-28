@@ -6,8 +6,8 @@ fi
 # aliases
 alias cat=bat
 alias ps=procs
-alias p=gopass
-alias pc='gopass -c'
+alias p='gopass show'
+alias pc='gopass show -c'
 alias ll='exa -l'
 alias lla='exa -la'
 alias -g L='|less'
