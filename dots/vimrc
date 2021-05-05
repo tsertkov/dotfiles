@@ -600,6 +600,9 @@ set wildignore+=*.DS_Store
 " au FocusLost * silent bufdo if !empty(bufname('%')) && !&ro | update | endif
 " au FocusLost * :wa
 
+" Gopass secure temporary files."
+au BufNewFile,BufRead /private/**/gopass** setlocal noswapfile nobackup noundofile
+
 " Remember folds."
 set viewoptions=folds
 au BufWinLeave * silent! mkview
