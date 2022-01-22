@@ -9,6 +9,10 @@ trim_trailing_whitespace = true
 [Makefile]
 indent_style = tab
 
-[package.json]
+[*.{js,json}]
+indent_style = space
+indent_size = 2
+
+[*.py]
 indent_style = space
 indent_size = 2

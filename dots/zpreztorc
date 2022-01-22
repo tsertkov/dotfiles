@@ -1,22 +1,18 @@
 zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
   'spectrum' \
-  'utility' \
+  'syntax-highlighting' \
+  'history' \
+  'history-substring-search' \
+  'git' \
   'completion' \
   'fasd' \
-  'archive' \
-  'git' \
-  'osx' \
-  'syntax-highlighting' \
-  'history-substring-search' \
   'prompt' \
   'gpg' \
   'autosuggestions'
 
 zstyle ':prezto:module:prompt' theme 'sorin'
-zstyle ':prezto:module:terminal' auto-title 'yes'
+zstyle ':prezto:module:git:alias' skip 'yes'
+zstyle ':prezto:module:autosuggestions' color 'yes'
+zstyle ':prezto:module:autosuggestions:color' found 'fg=15'
+

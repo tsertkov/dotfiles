@@ -1,26 +1,62 @@
 #
-# Browser
+# Aliases
 #
 
-if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
-fi
+# std adjustments
+alias ls="ls --color=auto"
+alias -g L="|less"
 
-#
-# Editors
-#
+# modent app improvements
+alias ll="exa -l"
+alias lla="exa -la"
+alias curll=curlie
+alias pss=procs
+alias catt=bat
+alias duu=dust
+alias findd=fd
 
-export EDITOR='vim'
-export VISUAL='vim'
-export PAGER='less'
+# pass
+alias p="gopass show"
+alias pc="gopass show -c"
+alias pf="gopass show -f"
+alias pass=gopass
 
-#
-# Language
-#
+# git
+alias g=git
+# fetch
+alias gf='git fetch'
+alias gfa='git fetch --all'
+alias gfm='git pull'
+# working copy
+alias gws='git status --ignore-submodules=$_git_status_ignore_submodules --short'
+alias gwd='git diff --no-ext-diff'
+alias gwdc='git diff --no-ext-diff --cached'
+alias gwds='git difftool --no-symlinks --dir-diff'
+alias gwdsc='git difftool --no-symlinks --dir-diff --cached'
+# log
+alias gl='git log --topo-order --pretty=format:"$_git_log_medium_format"'
+alias gll='git log --graph --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate'
+alias gls='git log --topo-order --stat --pretty=format:"$_git_log_medium_format"'
+alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"$_git_log_medium_format"'
+# push
+alias gp='git push'
+alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
+# commit
+alias gc='git commit --verbose'
+alias gcm='git commit --message'
+# branch
+alias gb='git branch'
+alias gbc='git checkout -b'
+# checkout
+alias gco='git checkout'
 
-if [[ -z "$LANG" ]]; then
-  export LANG='en_US.UTF-8'
-fi
+# kitty special
+alias d="kitty +kitten diff"
+alias ssh="kitty +kitten ssh"
+alias icat="kitty +kitten icat"
+
+# required by awsume
+alias awsume="source awsume"
 
 #
 # Paths
@@ -28,43 +64,13 @@ fi
 
 typeset -gU cdpath fpath mailpath path
 
-# Set the the list of directories that cd searches.
-# cdpath=(
-#   $cdpath
-# )
+# Enable homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Set the list of directories that Zsh searches for programs.
 path=(
   ~/dotfiles/bin
-  /usr/local/{bin,sbin}
+  /usr/local/bin
   $path
 )
-
-#
-# Less
-#
-
-# Set the default Less options.
-# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
-# Remove -X and -F (exit if the content fits on one screen) to enable it.
-export LESS='-F -g -i -M -R -S -w -X -z-4'
-
-# Set the Less input preprocessor.
-if (( $+commands[lesspipe.sh] )); then
-  export LESSOPEN='| /usr/bin/env lesspipe.sh %s 2>&-'
-fi
-
-#
-# Temporary Files
-#
-
-if [[ ! -d "$TMPDIR" ]]; then
-  export TMPDIR="/tmp/$USER"
-  mkdir -p -m 700 "$TMPDIR"
-fi
-
-TMPPREFIX="${TMPDIR%/}/zsh"
-if [[ ! -d "$TMPPREFIX" ]]; then
-  mkdir -p "$TMPPREFIX"
-fi
 

@@ -1,32 +1,9 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-# aliases
-alias cat=bat
-alias ps=procs
-alias p='gopass show'
-alias pc='gopass show -c'
-alias ll='exa -l'
-alias lla='exa -la'
-alias -g L='|less'
-alias curl-hdr='curl -Ss -D - -o /dev/null'
-
-# key mappings
-bindkey "^[^[[C"  forward-word              # alt + right
-bindkey "^[^[[D"  backward-word             # alt + left
-bindkey "^[^[[A"  _history-complete-older   # alt + up
-bindkey "^[^[[B"  _history-complete-newer   # alt + down
-
-# direnv
-eval "$(direnv hook zsh)"
-
 # Execute code that does not affect the current session in the background.
 {
   # Compile the completion dump to increase startup speed.
-  zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+  zcompdump="${XDG_CACHE_HOME:-$HOME/.cache}/prezto/zcompdump"
   if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
     zcompile "$zcompdump"
   fi
 } &!
+

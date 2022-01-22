@@ -1,0 +1,27 @@
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# key mappings
+bindkey "^[^[[C"  forward-word              # alt + right
+bindkey "^[^[[D"  backward-word             # alt + left
+bindkey "^[^[[A"  _history-complete-older   # alt + up
+bindkey "^[^[[B"  _history-complete-newer   # alt + down
+
+# awsume autocomplete path
+fpath=(~/.awsume/zsh-autocomplete/ $fpath)
+
+# enable autocomplete
+autoload -U compinit && compinit
+autoload -U bashcompinit && bashcompinit
+
+# gopass autocomplete
+source <(gopass completion bash)
+
+# aws autocomplete
+complete -C '/opt/homebrew/bin/aws_completer' aws
+
+# direnv
+eval "$(direnv hook zsh)"
+

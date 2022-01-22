@@ -1,902 +1,201 @@
-" Vim configuration file
-" Started as a stripped down vimrc from sorin-ionescu/dotfiles
+"
+" ~/.vimrc
+"
 
 " Bundles ---------------------------------------------------------------- {{{
-
-" Turn off vi compatibility.
 set nocompatible
-
-" Turning filetype off is necessary to load ftdetect files.
 filetype off
-
-" Install Vundle for bundles to work:
-"     git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" General ---------------------------------------------------------------- {{{
-
-" Manages Vim bundles.
-Bundle 'gmarik/vundle'
-
-" A better status bar.
-Bundle 'Lokaltog/vim-powerline'
-
-" Identifies file indentation.
-Bundle 'Raimondi/YAIFA'
-
-" Tree undo.
-Bundle 'sjl/gundo.vim'
-
-" Use the repeat command (.) with plugins.
-Bundle 'tpope/vim-repeat'
-
-" Provides pairs of bracket mappings for buffer, file navigation and editing.
-Bundle 'tpope/vim-unimpaired'
-
-" }}}
-" Color Scheme ----------------------------------------------------------- {{{
-
-" A usable color scheme.
-Bundle 'altercation/vim-colors-solarized'
-
-" }}}
-" Syntax ----------------------------------------------------------------- {{{
-
-Bundle 'tpope/vim-markdown'
-
-" }}}
-" Programming ------------------------------------------------------------ {{{
-
-" A better paste.
-Bundle 'sickill/vim-pasta'
-
-" Syntax checking through external checkers.
-Bundle 'scrooloose/syntastic'
-
-" Comment and uncomment code.
-Bundle 'tomtom/tcomment_vim'
-
-" Insert-completion via the tab key.
-Bundle 'ervandew/supertab'
-
-" Surround selection with quotes, parenthesis, etc.
-Bundle 'tpope/vim-surround'
-
-" Automatically closes quotes, parenthesis, brackets, etc.
-Bundle 'Raimondi/delimitMate'
-
-" Displays indent levels.
-Bundle 'nathanaelkane/vim-indent-guides'
-
-" }}}
-" Version Control -------------------------------------------------------- {{{
-
-" Git syntax highlighting.
-Bundle 'tpope/vim-git'
-
-" Git integration.
-Bundle 'tpope/vim-fugitive'
-
-" Git commit browser.
-Bundle 'int3/vim-extradite'
-
-" Merge conflict resolution.
-Bundle 'sjl/splice.vim'
-
-" }}}
-" Web Development -------------------------------------------------------- {{{
-
-" Expands condensed HTML.
-Bundle 'mattn/emmet-vim'
-
-" HTML langauge.
-Bundle 'othree/html5.vim'
-
-" CSS language.
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-
-" LESS (dynamic CSS) language.
-Bundle 'groenewege/vim-less'
-
-" JavaScript language.
-Bundle 'pangloss/vim-javascript'
-
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'ervandew/supertab'
+call vundle#end()
+filetype plugin indent on
 " }}}
 
-" }}}
-" General Settings ------------------------------------------------------- {{{
-
-" SECURE: Do not parse mode comments in files.
-set modelines=0
-
-" Large undo levels.
-set undolevels=1000
-
-" Size of command history.
-set history=50
-
-" Always use unicode.
-set encoding=utf8
-
-" Share the clipboard.
-" set clipboard+=unnamed
-
-" Fix backspace.
-set backspace=indent,eol,start
-
-" Keep a backup file.
-set backup
-
-" Do not back up temporary files.
-set backupskip=/tmp/*,/private/tmp/*"
-
-" Store backup files in one place.
-set backupdir^=$HOME/.vim/var/backup//
-
-" Store swap files in one place.
-set dir^=$HOME/.vim/var/swap//
-
-" Store undo files in one place.
-set undodir^=$HOME/.vim/var/undo//
-
-" Store view files in one place.
-set viewdir^=$HOME/.vim/var/view//
-
-" Save undo tree.
-set undofile
-
-" Allow undoing a reload from disk.
-set undoreload=1000
-
-" Auto read externally modified files.
-set autoread
-
-" Auto write before certain commands.
-set autowrite
-
-" Set spell check language.
-set spelllang=en_us
-
-" Save battery by letting OS flush to disk.
-set nofsync
-
-" Set the default shell.
-" set shell=bash
-
-" Leaders ---------------------------------------------------------------- {{{
-
-" Comma is easer to access than backslash.
-let mapleader = ','
-
-" Semicolon is second-easier to type than backslash.
-let maplocalleader = ';'
-
-" }}}
-
-" }}}
-" Presentation ----------------------------------------------------------- {{{
-
-" Never let a window be less than 1px.
-set winminheight=1
-
-" Show short messages, no intro.
-set shortmess=aIoO
-
-" Show the current mode.
-set showmode
-
-" Show last command.
-set showcmd
-
-" Scroll n lines before vertical edge.
-set scrolloff=3
-
-" Scroll n lines before horizontal edge.
-set sidescroll=3
-
-" Page on extended output.
-set more
-
-" Ring bell on error messages.
-set errorbells
-
-" Show visual cue on error messages.
-set visualbell
-
-" Don't keep windows at equal size.
-set noequalalways
-
-" Split window appears below the current one.
-set splitbelow
-
-" Split window appears right the current one.
-set splitright
-
-" Line break at the characters in breakat.
-set linebreak
-
-" Show ↪ at the beginning of wrapped lines.
-let &showbreak=nr2char(8618).' '
-
-" Fast scrolling when on a decent connection.
-set ttyfast
-
-" Do not draw while executing macros.
-set lazyredraw
-
-" Set keys move cursor to next/previous line.
-set ww+=<,>,[,]
-
-" Show the cursor position.
-set ruler
-
-" Show how far a line is from current line.
-" set relativenumber
-
-" Allow hidden buffers.
-set hidden
-
-" Show matching parenthesis.
-set showmatch
-
-" Match for 3 tenths of a second.
-set matchtime=3
-
-" Pairs to match.
-set matchpairs+=<:>
-
-" Print syntax highlighting.
-set printoptions+=syntax:y
-
-" Print line numbers.
-set printoptions+=number:y
-
-" Enable error jumping.
-set cf
-
-" Set diff fill char.
-set fillchars+=diff:⣿
-
-" Enable syntax highlighting.
 syntax on
 
-" Detect file type.
-filetype on
-
-" Enable file indenting.
-filetype indent on
-
-" Load syntax files for better indenting.
-filetype plugin indent on
-
-" Color Scheme ----------------------------------------------------------- {{{
-
-set background=dark
-
-" }}}
-" Graphical Interface ---------------------------------------------------- {{{
-
-if has('gui_running')
-    " Use a good font.
-    set guifont=Source\ Code\ Pro:h14
-
-    " Enable menu bar.
-    set guioptions+=m
-
-    " Disable the tool bar.
-    set guioptions-=T
-
-    " Disable left scrollbar.
-    set guioptions-=l
-
-    " Disable left scrollbar if split is present.
-    set guioptions-=L
-
-    " Disable right scrollbar.
-    set guioptions-=r
-
-    " Disable right scrollbar if split is present.
-    set guioptions-=R
-
-    " Do not auto copy selection to clipboard.
-    set guioptions-=a
-
-    " Initial window size.
-    set lines=25 columns=80
-
-    if has('gui_macvim')
-        " Transparent background.
-        set transparency=5
-
-        " Real full screen.
-        set fuopt+=maxvert,maxhorz
-
-        " Shift+Arrows selection.
-        let macvim_hig_shift_movement = 1
-
-        " Command+Shift+Left.
-        macm Window.Select\ Previous\ Tab key=<D-S-Left>
-
-        " Command+Shift+Right.
-        macm Window.Select\ Next\ Tab key=<D-S-Right>
-    endif
+" Jump back to the last position when opening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-if has('mouse')
-    " Enable mouse everywhere.
-    set mouse=a
-
-    " Show a pop-up for right-click.
-    set mousemodel=popup_setpos
-
-    " Hide mouse while typing.
-    set mousehide
-endif
-
-" }}}
-" Window Title ----------------------------------------------------------- {{{
-if has('title') && (has('gui_running') || &title)
-    " Set the title.
-    set titlestring=
-
-    " File name.
-    set titlestring+=%f\ "
-
-    " Flags.
-    set titlestring+=%h%m%r%w
-
-    " Program name.
-    set titlestring+=\ -\ %{v:progname}
-
-    " Working directory.
-    set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
-endif
-
-" }}}
-" Terminal Interface ----------------------------------------------------- {{{
-
-if &term =~ 'xterm'
-    if &termencoding == ''
-        set termencoding=utf-8
-    endif
-
-    if has('title')
-        " Restore the title of the shell upon exit.
-        let &titleold = 'Terminal'
-
-        " Set the title.
-        set title
-    endif
-
-    if has('mouse')
-        " Terminal type for mouse recognition.
-        set ttymouse=xterm2
-    endif
-
-    " Restore screen on exit.
-    set restorescreen
-
-    " Terminal in 'termcap' mode.
-    set t_ti=7[r[?47h
-
-    " Terminal out of 'termcap mode.
-    set t_te=[?47l8
-
-" Cursor Shape ----------------------------------------------------------- {{{
-
-    " Tmux will only forward escape sequences to the terminal if surrounded by
-    " a DCS sequence (http://bit.ly/zImrzb).
-
-    if exists('$TMUX')
-        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-    else
-        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-    endif
-
-" }}}
-
-endif
-
-" }}}
-" Status Line ------------------------------------------------------------ {{{
-
-" Always show status.
-set laststatus=2
-
-" Disable status line fill chars.
-set fillchars+=stl:\ ,stlnc:\ " Space.
-
-" }}}
-
-" }}}
-" Search and Replace ----------------------------------------------------- {{{
-
-" Show partial matches as search is entered.
-set incsearch
-
-" Highlight search patterns.
-set hlsearch
-
-" Enable case insensitive search.
-set ignorecase
-
-" Disable case insensitivity if mixed case.
-set smartcase
-
-" Wrap to top of buffer when searching.
-set wrapscan
-
-" Make search and replace global by default.
-set gdefault
-
-" Use sane regexes.
-nnoremap / /\v
-vnoremap / /\v
-nnoremap ? ?\v
-vnoremap ? ?\v
-
-" Keep search matches in the middle of the window.
-nnoremap * *zzzv
-nnoremap # #zzzv
-nnoremap n nzzzv
-nnoremap N Nzzzv
-
-" Keep jumps in the middle of the window.
-nnoremap g, g,zz
-nnoremap g; g;zz
-
-" Open a QuickFix window for the last search.
-nnoremap <silent> <Leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
-
-" }}}
-" Whitespace ------------------------------------------------------------- {{{
-
-" Do not select the end of line.
-set selection=old
-
-" Expand tabs into spaces.
-set expandtab
-
-" Set tab to equal 4 spaces.
-set tabstop=4
-
-" Set soft tabs equal to 4 spaces.
-set softtabstop=4
-
-" Set auto indent spacing.
-set shiftwidth=4
-
-" Shift to the next round tab stop.
-set shiftround
-
-" Insert spaces in front of lines.
-set smarttab
-
-" Copy indent from the current line.
-set autoindent
-
-" Wrap text.
-set wrap
-
-" Maximum line width before wrapping.
-set textwidth=80
-
-" Describes how auto formatting is to be done.
-set formatoptions=qrn1
-
-" Allow virtual editing in visual block mode.
-set virtualedit+=block
-
-" Invisible Characters ----------------------------------------------------{{{
-
-" Do not show invisible characters.
-set nolist
-
-" List of characters to show instead of whitespace.
-set listchars=tab:▸\ ,eol:¬,trail:⌴,extends:❯,precedes:❮
-
-" Highlight VCS conflict markers.
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
-" }}}
-
-" }}}
-" Folding ---------------------------------------------------------------- {{{
-
-" Enable folding.
-set foldenable
-
-" Syntax dictates folding.
-set foldmethod=syntax
-
-" Use a one level fold.
-set foldlevel=0
-
-" Do not nest more than 2 folds.
-set foldnestmax=2
-
-" Focus the current fold.
-nnoremap <Leader>z zMzvzz
-
-" Make zO recursively open the top level fold regardless of cursor placement.
-nnoremap zO zCzO
-
-" Credit: Steve Losh
-function! SJLFoldText()
-    let line = getline(v:foldstart)
-
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
-
-    " Expand tabs into spaces.
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
-
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . ' ...' .
-        \ repeat(" ",fillcharcount) .
-        \ foldedlinecount . ' ...' . ' '
-endfunction
-set foldtext=SJLFoldText()
-
-" }}}
-" File Name Auto Completion ---------------------------------------------- {{{
-
-" Show a list entries.
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
 set wildmenu
 
-" Enable completion on tab.
-set wildchar=<Tab>
-
-" Insert mode completion.
-set completeopt=longest,menu,preview
-
-" Wildcard expansion completion.
-set wildmode=list:longest,list:full
-
-" Keyword completion for when Ctrl-P and Ctrl-N are pressed.
-set complete=.,t
-
-" Completion Ignored Files ----------------------------------------------- {{{
-
-" VCS directories.
-set wildignore+=.hg,.git,.svn
-
-" LaTeX intermediate files.
-set wildignore+=*.aux,*.out,*.toc
-
-" Binary images.
-set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
-
-" Lua byte code.
-set wildignore+=*.luac
-
-" Compiled object files.
-set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest
-
-" Python byte code.
-set wildignore+=*.pyc
-
-" Compiled spelling lists.
-set wildignore+=*.spl
-
-" Backup, auto save, swap, undo, and view files.
-set wildignore+=*~,#*#,*.sw?,%*,*=
-
-" Mac OS X.
-set wildignore+=*.DS_Store
-
-" }}}
-
-" }}}
-" Auto Commands ---------------------------------------------------------- {{{
-
-" Auto save on lost focus. DISABLED: Closes help file when focus is lost.
-" au FocusLost * silent bufdo if !empty(bufname('%')) && !&ro | update | endif
-" au FocusLost * :wa
-
-" Gopass secure temporary files."
-au BufNewFile,BufRead /private/**/gopass** setlocal noswapfile nobackup noundofile
-
-" Remember folds."
-set viewoptions=folds
-au BufWinLeave * silent! mkview
-au BufWinEnter * silent! loadview
-
-" Switch the CWD to the current buffer.
-" au BufEnter * lcd %:p:h
-
-" Resize splits when the window is resized.
-au VimResized * exe "normal! \<c-w>="
-
-" Strip trailing whitespace.
-au BufWritePre,FileWritePre,FileAppendPre,FilterWritePre *
-    \ call StripTrailingWhitespace()
-
-" Cursorline ------------------------------------------------------------- {{{
-
-" Highlight the current line in the current window.
-aug cursorline
-    au!
-    au BufEnter * set cursorline
-    au BufLeave * set nocursorline
-    au InsertEnter * set nocursorline
-    au InsertLeave * set cursorline
-aug end
-
-" }}}
-" Trailing Whitespace ---------------------------------------------------- {{{
-
-aug trailing
-    au!
-    au InsertEnter * :set listchars-=trail:⌴
-    au InsertLeave * :set listchars+=trail:⌴
-aug end
-
-" }}}
-
-" }}}
-" File Settings ---------------------------------------------------------- {{{
-
-" BASH ------------------------------------------------------------------- {{{
-
-aug ft_bash
-    au!
-    au BufNewFile,BufRead bash-fc-* setlocal filetype=sh
-    setlocal tabstop=2 softtabstop=2 shiftwidth=2
-aug end
-
-" }}}
-" CSS -------------------------------------------------------------------- {{{
-
-aug ft_css
-    au!
-    au BufNewFile,BufRead *.less setlocal filetype=less
-
-    " Use cc to change lines without borking the indentation.
-    au BufNewFile,BufRead *.css,*.less nnoremap <buffer> cc ddko
-
-    " Use <Leader>S to sort properties.
-    au BufNewFile,BufRead *.css,*.less
-        \ nnoremap <buffer> <LocalLeader>S ?{<CR>jV/\v^\s*\}?$<CR>k:sort<CR>:noh<CR>
-
-    " Make {<CR> insert a pair of brackets in such a way that the cursor is
-    " correctly positioned inside of them and the following code doesn't get
-    " unfolded.
-    au BufNewFile,BufRead *.css,*.less
-        \ inoremap <buffer> {<CR> {}<left><CR>.<CR><esc>kA<bs><tab>
-aug end
-
-" }}}
-" Git -------------------------------------------------------------------- {{{
-
-aug ft_git
-    au!
-    au FileType git* setlocal
-        \ noexpandtab
-        \ tabstop=4
-        \ shiftwidth=4
-        \ nofoldenable
-        \ textwidth=72
-
-" Fugitive --------------------------------------------------------------- {{{
-
-    " Jump to the last known position when reopening a file.
-    au BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
-
-    " Map '..' to go up a directory in fugitive tree/blob buffers.
-    au User fugitive
-    \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-    \   nnoremap <buffer> .. :edit %:h<CR> |
-    \ endif
-
-    " Auto-clean fugitive buffers.
-    au BufReadPost fugitive://* set bufhidden=delete
-
-" }}}
-
-aug end
-
-" }}}
-" HTML ------------------------------------------------------------------- {{{
-
-aug ft_html
-    au!
-    au FileType html compiler html
-    inoremap <C-_> <Space><BS><Esc>:call InsertCloseTag()<CR>a
-aug end
-
-" }}}
-" Mail-------------------------------------------------------------------- {{{
-
-aug ft_mail
-    au!
-    au Filetype mail setlocal spell
-aug end
-
-" }}}
-" Markdown --------------------------------------------------------------- {{{
-
-aug ft_markdown
-    au!
-    au BufNewFile,BufRead *.m*down setlocal filetype=markdown
-aug end
-
-" }}}
-" Mercurial -------------------------------------------------------------- {{{
-
-aug ft_mercurial
-    au!
-    au BufNewFile,BufRead .hgrc,hgrc,Mercurial.ini setlocal filetype=dosini
-aug end
-
-" }}}
-" QuickFix --------------------------------------------------------------- {{{
-
-aug ft_quickfix
-    au!
-    au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
-aug end
-
-" }}}
-" Text ------------------------------------------------------------------- {{{
-
-aug ft_text
-    au!
-    " Enable soft-wrapping for text files
-    au FileType text,markdown,html,xhtml,eruby setlocal wrap linebreak nolist
-aug end
-
-" }}}
-" Vim -------------------------------------------------------------------- {{{
-
-aug ft_vim
-    au!
-    au FileType vim,help setlocal textwidth=78
-    au FileType vim setlocal foldmethod=marker colorcolumn=79
-aug end
-
-" }}}
-" Zsh -------------------------------------------------------------------- {{{
-
-aug ft_zsh
-    au!
-    au BufNewFile,BufRead zshecl*,prompt_*_setup setlocal filetype=zsh
-    setlocal tabstop=2 softtabstop=2 shiftwidth=2
-aug end
-
-" }}}
-
-" }}}
-" Plugin Settings -------------------------------------------------------- {{{
-
-" Auto Complete Pop ------------------------------------------------------ {{{
-
-" Set length of characters before keyword completion.
-let g:AutoComplPop_BehaviorKeywordLength = 4
-
-" }}}
-" Extradite -------------------------------------------------------------- {{{
-
-" Show the commit hash.
-let g:extradite_showhash = 1
-
-" }}}
-" Gundo ------------------------------------------------------------------ {{{
-
-nnoremap <Leader>U :GundoToggle<CR>
-let g:gundo_preview_bottom = 1
-
-" }}}
-" HTML5 ------------------------------------------------------------------ {{{
-
-let g:event_handler_attributes_complete = 0
-let g:rdfa_attributes_complete = 0
-let g:microdata_attributes_complete = 0
-let g:atia_attributes_complete = 0
-
-" }}}
-" Indent Guides ---------------------------------------------------------- {{{
-
-" Auto calculate guide colors.
-let g:indent_guides_auto_colors = 1
-
-" Use skinny guides.
-let g:indent_guides_guide_size = 1
-
-" Indent from level 2.
-let g:indent_guides_start_level = 2
-
-" }}}
-" Powerline -------------------------------------------------------------- {{{
-
-" Use fancy UTF-9 symbols (requires a patched font, see documentation).
-"let g:Powerline_symbols = 'fancy'
-
-" Use short path.
-let g:Powerline_stl_path_style = 'filename'
-
-" }}}
-" Solarized -------------------------------------------------------------- {{{
-
-if exists('g:colors_name') && g:colors_name == 'solarized'
-    " Text is unreadable with background transparency.
-    if has('gui_macvim')
-        set transparency=0
-    endif
-
-    " Highlighted text is unreadable in Terminal.app because it
-    " does not support setting of the cursor foreground color.
-    if !has('gui_running') && $TERM_PROGRAM == 'Apple_Terminal'
-        if &background == 'dark'
-            hi Visual term=reverse cterm=reverse ctermfg=10 ctermbg=7
-        endif
-    endif
+" Theme
+colorscheme slate
+
+" Scrolling
+set scrolloff=3
+set sidescroll=3
+
+" Read file when modified outside Vim
+set autoread
+
+" Do not keep any history
+" set viminfo='0,:0,<0,@0,f0
+set nobackup
+set nowb
+set noswapfile
+
+" Allow backspacing over everything in INSERT mode
+set backspace=indent,eol,start
+
+" Show ruler and command visual aid
+set ruler
+set showcmd
+
+" Disable bells
+set noerrorbells
+set visualbell
+set t_vb=
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" CTRL-U in INSERT mode deletes a lot. Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+
+" General
+set colorcolumn=80        " visual indicator of column
+set cursorline            " visual indicator of current line
+set nowrap                " disable word wrap
+set showmatch             " show bracket matches
+"set completeopt-=preview  " dont show preview window
+"set laststatus=2          " always show status line
+"set lazyredraw            " don't update screen when executing macros
+"set textwidth=0           " don't break lines after some maximum width
+"set ttyfast               " increase chars sent to screen for redrawing
+"set title                 " use filename in window title
+
+" Folding
+set foldignore=           " don't ignore anything when folding
+set foldlevelstart=99     " no folds closed on open
+set foldmethod=indent     " collapse code using indent levels
+set foldnestmax=20        " limit max folds for indent and syntax methods
+
+" Tabs
+set autoindent            " copy indent from previous line
+set expandtab             " replace tabs with spaces
+set shiftwidth=2          " spaces for autoindenting
+set smarttab              " <BS> removes shiftwidth worth of spaces
+set softtabstop=2         " spaces for editing, e.g. <Tab> or <BS>
+set tabstop=2             " spaces for <Tab>
+
+" Indent
+set ai
+set si
+
+" Show line number and listchars
+set list
+set nu
+set relativenumber
+
+" Searches
+set hlsearch              " highlight search results
+set incsearch             " search whilst typing
+set ignorecase            " case insensitive searching
+set smartcase             " override ignorecase if upper case typed
+
+" Tweaks for browsing
+let g:netrw_banner=0        " disable annoying banner
+let g:netrw_browse_split=4  " open in prior window
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_liststyle=3     " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_winsize=30
+let g:netrw_home='~/.cache/vim'
+
+" Set default vertical split to right
+set splitright
+
+" Colours
+set t_Co=256
+set background=dark
+highlight ColorColumn ctermbg=236
+highlight CursorLine ctermbg=238 cterm=none
+highlight CursorLineNr ctermbg=238 cterm=none
+
+" Map Ctrl+[hjkl] to navigate windows vim style
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-l> <C-w>l
+
+" Map Ctrl+[arrow] to navigate windows`
+nnoremap <silent> <C-Left> <C-w>h
+nnoremap <silent> <C-Down> <C-w>j
+nnoremap <silent> <C-Up> <C-w>k
+nnoremap <silent> <C-Right> <C-w>l
+
+" Increase/descrease window split size
+if bufwinnr(1)
+  map + <C-W>+
+  map - <C-W>-
 endif
 
-" }}}
-" Splice ----------------------------------------------------------------- {{{
+" Pageup/down will scroll half-page and center the current line on the screen
+nnoremap <silent> <PageUp> <C-U>zz
+vnoremap <silent> <PageUp> <C-U>zz
+inoremap <silent> <PageUp> <C-O><C-U><C-O>zz
 
-let g:splice_prefix = "<LocalLeader>-"
+nnoremap <silent> <PageDown> <C-D>zz
+vnoremap <silent> <PageDown> <C-D>zz
+inoremap <silent> <PageDown> <C-O><C-D><C-O>zz
 
-let g:splice_initial_mode = "grid"
+" F2 to remove all trailing whitespace
+nnoremap <silent> <F2> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
-let g:splice_initial_layout_grid = 1
-let g:splice_initial_layout_loupe = 0
-let g:splice_initial_layout_compare = 0
-let g:splice_initial_layout_path = 0
+let mapleader=","
 
-let g:splice_initial_diff_grid = 1
-let g:splice_initial_diff_loupe = 0
-let g:splice_initial_diff_compare = 0
-let g:splice_initial_diff_path = 0
+" Quick exit
+nmap <leader>q :q<CR>
+nmap <leader>Q :q!<CR>
 
-let g:splice_initial_scrollbind_grid = 0
-let g:splice_initial_scrollbind_loupe = 0
-let g:splice_initial_scrollbind_compare = 0
-let g:splice_initial_scrollbind_path = 0
+" Open netrw filebrowser in current window, with current file selected
+nmap <leader>e :e .<CR>
+nmap <leader>e :Lexplore .<CR>
 
-let g:splice_wrap = "nowrap"
+" Rotate windows
+nmap <leader>r <C-w>r
 
-" }}}
-" Surround --------------------------------------------------------------- {{{
+" Quick save the current file
+nmap <leader>w :w<CR>
+nmap <leader>W :w !sudo tee % >/dev/null<CR>
 
-let g:surround_40 = "(\r)"
-let g:surround_91 = "[\r]"
-let g:surround_60 = "<\r>"
+" Clear search highlights
+nmap <silent> <leader><space> :noh<CR>
 
-" }}}
-" Syntastic -------------------------------------------------------------- {{{
+" Toggle show hidden files in netrw
+nmap <leader>. gh
 
-" Show warnings.
-let g:syntastic_quiet_messages = {'level': 'warnings'}
+" Copy to OSX CLIPBOARD
+vnoremap <leader>c "*y
 
-" Do not validate the following file types.
-let g:syntastic_disabled_filetypes = ['html', 'python']
+" Tab indent
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
-" Set the display format.
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+" Commend with CMD+-
+nmap ¯ gcc
+nmap <leader>/ gcc
 
-" }}}
-" Tcomment --------------------------------------------------------------- {{{
+" Mark line
+nnoremap <silent> <leader>m :exe "let m = matchadd('WildMenu','\\%" . line('.') . "l')"<CR>
 
-" Map 'gcp' comment the current paragraph (block).
-if exists('loaded_tcomment')
-    nmap <silent> gcp <c-_>p
-endif
+" Toggle cursorline
+nmap <leader>k :set cursorline!<CR>
 
-" }}}
-
-" }}}
-" Key Remapping ---------------------------------------------------------- {{{
+" Faster substitute.
+nnoremap <leader>S :%s//<left>
 
 " Tab Navigation --------------------------------------------------------- {{{
 
@@ -916,198 +215,44 @@ noremap <Leader>tn :tabnext<CR>
 noremap <Leader>tp :tabprevious<CR>
 
 " }}}
-" Window Navigation ------------------------------------------------------ {{{
 
-" Navigate to left window.
-nnoremap <C-h> <C-w>h
+" vimdiff display
+if &diff
+  set diffopt=filler,foldcolumn:0
+endif
 
-" Navigate to down window.
-nnoremap <C-j> <C-w>j
+" Show invisibles
+set listchars=trail:·
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
 
-" Navigate to top window.
-nnoremap <C-k> <C-w>k
+" Toggle whitespace chars visility
+nmap <leader>; :call CycleWhitespace()<CR>
+let g:show_whitespace = 0
+function! CycleWhitespace()
+  if g:show_whitespace
+    let g:show_whitespace = 0
+    set listchars=trail:·
+  else
+    let g:show_whitespace = 1
+    set listchars=eol:¬,tab:▸\ ,trail:·
+  endif
+endfunc
 
-" Navigate to right window.
-nnoremap <C-l> <C-w>l
+" Toggle/cycle line number modes
+nmap <leader>l :call CycleLineNumbers()<CR>
 
-" Horizontal split then move to bottom window.
-nnoremap <Leader>- <C-w>s
-
-" Vertical split then move to right window.
-nnoremap <Leader>\| <C-w>v<C-w>l
-
-" }}}
-" Text Alignment --------------------------------------------------------- {{{
-
-nnoremap <Leader>Al :left<CR>
-nnoremap <Leader>Ac :center<CR>
-nnoremap <Leader>Ar :right<CR>
-vnoremap <Leader>Al :left<CR>
-vnoremap <Leader>Ac :center<CR>
-vnoremap <Leader>Ar :right<CR>
-
-" }}}
-" Text Movement ---------------------------------------------------------- {{{
-
-noremap <Leader>j :m+<CR>
-noremap <Leader>k :m-2<CR>
-vnoremap <Leader>j :m'>+<CR>gv
-vnoremap <Leader>k :m-2<CR>gv
-
-" }}}
-" Miscellaneous Mappings ------------------------------------------------- {{{
-
-" Disable search match highlight.
-nnoremap <Leader><space> :noh<CR>
-
-" Duplicate a selection.
-vnoremap D y'>p
-
-" Tab to indent in visual mode.
-vnoremap <Tab> >gv
-
-" Shift+Tab to unindent in visual mode.
-vnoremap <S-Tab> <gv
-
-" Re hard wrap paragraph.
-nnoremap <Leader>q gqip
-
-" Reselect pasted text.
-nnoremap <Leader>v V`]
-
-" Reselect text ater indent/unindent.
-vnoremap < <gv
-vnoremap > >gv
-
-" Display-wise up/down movement instead of linewise.
-noremap j gj
-noremap k gk
-
-" Faster ESC.
-inoremap jk <ESC>
-inoremap kj <ESC>
-
-" Format Paragraph.
-nnoremap <Leader>q gwap
-
-" Formatting, TextMate-style.
-nnoremap Q gqip
-
-" Change Case.
-nnoremap <C-u> gUiw
-inoremap <C-u> <ESC>gUiwea
-
-" Write with sudo.
-cnoremap w!! w !sudo tee % >/dev/null
-
-" Toggle spell checking.
-nnoremap <silent><Leader>s :set spell!<CR>
-
-" Shift+P replace selection without overwriting default register in vmode.
-vnoremap P p :call setreg('"', getreg('0'))<CR>
-
-" Strip trailing whitespace.
-nnoremap <Leader>W call StripTrailingWhiteSpace()
-
-" Quick return.
-inoremap <C-CR> <ESC>A<CR>
-inoremap <S-C-CR> <ESC>A:<CR>
-
-" Fix linewise visual selection of various text objects.
-nnoremap VV V
-nnoremap Vit vitVkoj
-nnoremap Vat vatV
-nnoremap Vab vabV
-nnoremap VaB vaBV
-
-" Faster substitute.
-nnoremap <Leader>S :%s//<left>
-
-" Easier linewise reselection.
-nnoremap <Leader>v V`]
-
-" Toggle paste.
-set pastetoggle=<F8>
-
-" Replaste.
-nnoremap <D-p> "_ddPV`]
-
-" Diff.
-nnoremap <silent><Leader>do :diffoff!<CR>
-nnoremap <silent><Leader>dg :diffget<CR>:diffupdate<CR>
-nnoremap <silent><Leader>dp :diffput<CR>:diffupdate<CR>
-nnoremap <silent><Leader>du :diffupdate<CR>
-
-" Better completion.
-set completeopt=longest,menuone,preview
-" inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-p> pumvisible() ?
-    \ '<C-n>'  : '<C-n><C-r>=pumvisible() ?
-        \ "\<lt>up>" : ""<CR>'
-inoremap <expr> <C-n> pumvisible() ?
-    \ '<C-n>'  : '<C-n><C-r>=pumvisible() ?
-    \ "\<lt>Down>" : ""<CR>'
-
-" }}}
-
-" }}}
-" Functions -------------------------------------------------------------- {{{
-
-" Error Toggle ----------------------------------------------------------- {{{
-
-command! ErrorsToggle call ErrorsToggle()
-function! ErrorsToggle()
-    if exists("w:is_error_window")
-        unlet w:is_error_window
-        exec "q"
+function! CycleLineNumbers()
+  if (&number == 1 && &relativenumber == 0)
+    set relativenumber
+  else
+    if (&relativenumber == 1 && &number == 1)
+      set norelativenumber
+      set nonumber
     else
-        exec "Errors"
-        lopen
-        let w:is_error_window = 1
+      set number
+      set norelativenumber
     endif
-endfunction
-
-command! -bang -nargs=? QFixToggle call QFixToggle(<bang>0)
-function! QFixToggle(forced)
-    if exists("g:qfix_win") && a:forced == 0
-        cclose
-        unlet g:qfix_win
-    else
-        copen 10
-        let g:qfix_win = bufnr("$")
-    endif
-endfunction
-
-nmap <silent> <F3> :ErrorsToggle<CR>
-nmap <silent> <F4> :QFixToggle<CR>
-
-" }}}
-" Strip Trailing Whitespace ---------------------------------------------- {{{
-
-function! StripTrailingWhitespace()
-    if !&binary && &modifiable && &filetype != 'diff'
-        let l:winview = winsaveview()
-        %s/\s\+$//e
-        let @/=''
-        call winrestview(l:winview)
-    endif
-endfunction
-
-" }}}
-" Toggle Background ------------------------------------------------------ {{{
-
-function! BackgroundToggle()
-    let &background = ( &background == "dark"? "light" : "dark" )
-    if exists("g:colors_name")
-        exe "colorscheme " . g:colors_name
-    endif
-endfunction
-command! BackgroundToggle :call BackgroundToggle()
-silent! nnoremap <F2> :BackgroundToggle<CR>
-silent! inoremap <F2> :BackgroundToggle<CR>
-silent! vnoremap <F2> :BackgroundToggle<CR>
-
-" }}}
-
-" }}}
+  endif
+endfunc
 
