@@ -1,7 +1,13 @@
 #!/usr/bin/env sh
 
 brew install \
+  direnv \
+  gnupg \
   bat \
   exa \
-  direnv \
+  procs \
+  dust \
+  fd \
+  kitty \
+  curlie \
   gopass
