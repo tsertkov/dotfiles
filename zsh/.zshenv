@@ -1,3 +1,5 @@
+# ~/.zshenv (1)
+
 #
 # Browser
 #
@@ -21,7 +23,4 @@ export PAGER='less'
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
-
-# GPG pinentry requires TTY
-export GPG_TTY=$(tty)
 

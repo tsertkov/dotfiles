@@ -1,3 +1,5 @@
+# ~/.zprofile (2) - Interactive login
+
 #
 # Aliases
 #
@@ -58,19 +60,18 @@ alias icat="kitty +kitten icat"
 # required by awsume
 alias awsume="source awsume"
 
+# GPG pinentry requires TTY
+export GPG_TTY=$(tty)
+
 #
 # Paths
 #
 
 typeset -gU cdpath fpath mailpath path
 
-# Enable homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 # Set the list of directories that Zsh searches for programs.
 path=(
   ~/dotfiles/bin
-  /usr/local/bin
   $path
 )
 
