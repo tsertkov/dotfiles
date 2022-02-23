@@ -8,6 +8,5 @@ brew install \
   procs \
   dust \
   fd \
-  kitty \
   curlie \
   gopass
