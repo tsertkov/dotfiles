@@ -15,4 +15,3 @@ zstyle ':prezto:module:prompt' theme 'sorin'
 zstyle ':prezto:module:git:alias' skip 'yes'
 zstyle ':prezto:module:autosuggestions' color 'yes'
 zstyle ':prezto:module:autosuggestions:color' found 'fg=15'
-

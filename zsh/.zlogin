@@ -8,4 +8,3 @@
     zcompile "$zcompdump"
   fi
 } &!
-
