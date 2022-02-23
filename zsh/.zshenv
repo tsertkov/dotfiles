@@ -1,4 +1,4 @@
-# ~/.zshenv (1)
+# ~/.zshenv
 
 #
 # Browser
