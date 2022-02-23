@@ -2,19 +2,14 @@
 " ~/.vimrc
 "
 
-" Bundles ---------------------------------------------------------------- {{{
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'ervandew/supertab'
-call vundle#end()
-filetype plugin indent on
-" }}}
+scriptencoding utf-8
+set encoding=utf-8
 
-syntax on
+" Plugin
+call plug#begin()
+Plug 'tomtom/tcomment_vim'
+Plug 'ervandew/supertab'
+call plug#end()
 
 " Jump back to the last position when opening a file
 if has("autocmd")
