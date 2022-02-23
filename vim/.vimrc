@@ -217,7 +217,7 @@ if &diff
 endif
 
 " Show invisibles
-set listchars=trail:·
+set listchars=tab:\ \ ,trail:·
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
@@ -227,7 +227,7 @@ let g:show_whitespace = 0
 function! CycleWhitespace()
   if g:show_whitespace
     let g:show_whitespace = 0
-    set listchars=trail:·
+    set listchars=tab:\ \ ,trail:·
   else
     let g:show_whitespace = 1
     set listchars=eol:¬,tab:▸\ ,trail:·
