@@ -1,8 +1,7 @@
-[user]
-  name = Aleksandr Tsertkov
-  email = tsertkov@gmail.com
+[include]
+  path = ~/.gitconig.local
 [color]
-  ui = always
+  ui = auto
 [format]
   numbered = auto
 [core]
