@@ -9,11 +9,11 @@ set encoding=utf-8
 call plug#begin()
 Plug 'tomtom/tcomment_vim'
 Plug 'ervandew/supertab'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " Jump back to the last position when opening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-au BufRead,BufNewFile Makefile* set tabstop=4
 
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
