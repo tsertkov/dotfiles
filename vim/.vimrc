@@ -12,9 +12,8 @@ Plug 'ervandew/supertab'
 call plug#end()
 
 " Jump back to the last position when opening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+au BufRead,BufNewFile Makefile* set tabstop=4
 
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
