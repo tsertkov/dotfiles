@@ -4,7 +4,12 @@ Organized by topic GNU stow powered dockerfiles for zsh, vim, macOs and Linux, e
 
 ## Install
 
-Run `make` to install dotfiles.
+Clone dotfiles repo into `~/dotfiles` and run `make` to install symlinks, vim plugins, etc.
+
+```bash
+git clone --depth 1 https://github.com/tsertkov/dotfiles.git ~/dotfiles
+cd ~/dotfiles && make
+```
 
 ## Prerequisites
 
