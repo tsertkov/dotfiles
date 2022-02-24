@@ -1,10 +1,17 @@
 # Dotfiles (zsh, vim, macOS/linux, ...)
 
-Organized by topic GNU stow powered dockerfiles for zsh, vim, macOs and Linux, etc.
+Organised by topic, GNU stow powered dockerfiles for zsh, vim, macOs and Linux, etc.
+
+<img width="1118" alt="Screenshot 2022-02-24 at 11 52 27" src="https://user-images.githubusercontent.com/5339042/155510771-2ada6c13-2fa2-4ba6-bcaa-d88f5d4cb14c.png">
 
 ## Install
 
-Run `make` to install dotfiles.
+Clone dotfiles repo into `~/dotfiles` and run `make` to install symlinks, vim plugins, etc.
+
+```bash
+git clone --depth 1 https://github.com/tsertkov/dotfiles.git ~/dotfiles
+cd ~/dotfiles && make
+```
 
 ## Prerequisites
 
