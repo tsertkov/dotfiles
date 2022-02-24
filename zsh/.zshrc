@@ -97,7 +97,7 @@ if (( $+commands[fd] )); then
   alias findd=fd
 fi
 
-if (( $+commands[pass] )); then
+if (( $+commands[gopass] )); then
   alias p="gopass show"
   alias pc="gopass show -c"
   alias pf="gopass show -f"
