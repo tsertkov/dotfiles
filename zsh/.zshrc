@@ -5,10 +5,8 @@ if [[ -n $__zprof ]]; then
   zmodload zsh/zprof
 fi
 
-# emable awsume completion
-if (( $+commands[awsume] )); then
-  fpath=(~/.awsume/zsh-autocomplete/ $fpath)
-fi
+# enable local completions
+fpath=(~/dotfiles/zsh/site-functions/ $fpath)
 
 # Source Prezto
 source "${HOME}/dotfiles/prezto/init.zsh"
