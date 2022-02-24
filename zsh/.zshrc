@@ -49,6 +49,12 @@ fi
 
 # gpg-agent
 if (( $+commands[gpg-agent] )); then
+  # export SSH_AUTH_SOCK every time to overwrite defauls on macOS
+  if [[ "$OSTYPE" == darwin* ]]; then
+    export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+    export GPG_TTY=$TTY
+  fi
+
   if ! ps x -o pid,ucomm | grep -q -- 'gpg-agent'; then
     if [ ! -S "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
       local pinentry
@@ -57,10 +63,10 @@ if (( $+commands[gpg-agent] )); then
       else
         gpg-agent --daemon --enable-ssh-support >/dev/null
       fi
-    fi
 
-    export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
-    export GPG_TTY=$TTY
+      export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+      export GPG_TTY=$TTY
+    fi
   fi
 fi
 
