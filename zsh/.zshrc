@@ -49,17 +49,19 @@ fi
 
 # gpg-agent
 if (( $+commands[gpg-agent] )); then
-  if [ ! -S "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
-    local pinentry
-    if (( $+commands[pinentry-mac] )); then
-      gpg-agent --daemon --enable-ssh-support --pinentry-program $commands[pinentry-mac] >/dev/null
-    else
-      gpg-agent --daemon --enable-ssh-support >/dev/null
+  if ! ps x -o pid,ucomm | grep -q -- 'gpg-agent'; then
+    if [ ! -S "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
+      local pinentry
+      if (( $+commands[pinentry-mac] )); then
+        gpg-agent --daemon --enable-ssh-support --pinentry-program $commands[pinentry-mac] >/dev/null
+      else
+        gpg-agent --daemon --enable-ssh-support >/dev/null
+      fi
     fi
-  fi
 
-  export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
-  export GPG_TTY=$TTY
+    export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+    export GPG_TTY=$TTY
+  fi
 fi
 
 # modern apps
