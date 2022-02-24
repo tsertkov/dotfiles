@@ -19,14 +19,33 @@ bindkey "^[^[[D"  backward-word             # alt + left
 bindkey "^[^[[A"  _history-complete-older   # alt + up
 bindkey "^[^[[B"  _history-complete-newer   # alt + down
 
-#
-# Aliases
-#
-
-# std adjustments
+# Std aliases
 
 alias ls="ls --color=auto"
 alias -g L="|less"
+
+#
+# Paths
+#
+
+typeset -gU cdpath fpath mailpath path
+
+# Set the list of directories that Zsh searches for programs.
+path=(
+  ~/dotfiles/bin
+  $path
+)
+
+# Enable homebrew paths in macOS
+if [[ "$OSTYPE" == darwin* ]]; then
+  if (( $+commands[brew] )); then
+    eval "$(brew shellenv)"
+  elif [ -x /usr/local/bin/brew ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+  elif [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  fi
+fi
 
 # modern apps
 
@@ -91,29 +110,6 @@ if (( $+commands[git] )); then
   alias gbc='git checkout -b'
   # checkout
   alias gco='git checkout'
-fi
-
-#
-# Paths
-#
-
-typeset -gU cdpath fpath mailpath path
-
-# Set the list of directories that Zsh searches for programs.
-path=(
-  ~/dotfiles/bin
-  $path
-)
-
-# Enable homebrew paths in macOS
-if [[ "$OSTYPE" == darwin* ]]; then
-  if (( $+commands[brew] )); then
-    eval "$(brew shellenv)"
-  elif [ -x /usr/local/bin/brew ]; then
-    eval "$(/usr/local/bin/brew shellenv)"
-  elif [ -x /opt/homebrew/bin/brew ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-  fi
 fi
 
 # kitty special
