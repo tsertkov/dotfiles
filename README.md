@@ -1,6 +1,6 @@
 # Dotfiles (zsh, vim, macOS/linux, ...)
 
-Organized by topic GNU stow powered dockerfiles for zsh, vim, macOs and Linux, etc.
+Organised by topic GNU stow powered dockerfiles for zsh, vim, macOs and Linux, etc.
 
 ## Install
 
