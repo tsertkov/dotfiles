@@ -47,6 +47,21 @@ if [[ "$OSTYPE" == darwin* ]]; then
   fi
 fi
 
+# gpg-agent
+if (( $+commands[gpg-agent] )); then
+  if [ ! -S "${HOME}/.gnupg/S.gpg-agent.ssh" ]; then
+    local pinentry
+    if (( $+commands[pinentry-mac] )); then
+      gpg-agent --daemon --enable-ssh-support --pinentry-program $commands[pinentry-mac] >/dev/null
+    else
+      gpg-agent --daemon --enable-ssh-support >/dev/null
+    fi
+  fi
+
+  export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+  export GPG_TTY=$TTY
+fi
+
 # modern apps
 
 if (( $+commands[exa] )); then

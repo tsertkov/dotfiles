@@ -8,7 +8,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'fasd' \
   'prompt' \
-  'gpg' \
   'autosuggestions'
 
 zstyle ':prezto:module:prompt' theme 'sorin'
