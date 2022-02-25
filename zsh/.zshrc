@@ -6,7 +6,7 @@ if [[ -n $__zprof ]]; then
 fi
 
 # enable local completions
-fpath=(~/dotfiles/zsh/site-functions/ $fpath)
+fpath=(~/dotfiles/zsh/site-functions $fpath)
 
 # Source Prezto
 source "${HOME}/dotfiles/prezto/init.zsh"
