@@ -9,4 +9,6 @@ brew install \
   dust \
   fd \
   curlie \
-  gopass
+  gopass \
+  the_silver_searcher \
+  ripgrep
