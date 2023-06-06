@@ -150,6 +150,11 @@ if (( $+commands[direnv] )); then
   eval "$(direnv hook zsh)"
 fi
 
+# rbenv
+if (( $+commands[rbenv] )); then
+  eval "$(rbenv init - zsh)"
+fi
+
 # end profiling
 if [[ -n $__zprof ]]; then
   zprof
