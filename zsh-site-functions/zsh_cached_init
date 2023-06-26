@@ -1,0 +1,14 @@
+# evals cached stdout from given command
+local name="$1"
+local cmd="$2"
+
+if [ -z "$name" -o -z "$cmd" ]; then
+  echo "Error: zsh_cached_init called without required arguments"
+  return 1
+fi
+
+if [ ! -f "${DOTFILESDIR}/zsh-init-cache/${name}" ]; then
+  eval "$cmd" > "${DOTFILESDIR}/zsh-init-cache/${name}"
+fi
+
+source "${DOTFILESDIR}/zsh-init-cache/${name}"

@@ -6,10 +6,16 @@ if [[ -n $__zprof ]]; then
 fi
 
 # enable local completions
-fpath=(~/dotfiles/zsh/site-functions $fpath)
+fpath=(~/dotfiles/zsh-site-functions $fpath)
+
+# define global var DOTFILESDIR
+DOTFILESDIR="${HOME}/dotfiles"
+
+# autoload zsh_cached_init function early
+autoload -Uz zsh_cached_init
 
 # Source Prezto
-source "${HOME}/dotfiles/prezto/init.zsh"
+source "${DOTFILESDIR}/prezto/init.zsh"
 
 # key mappings
 bindkey "^[^[[C"  forward-word              # alt + right
@@ -37,11 +43,7 @@ path=(
 # Enable homebrew paths in macOS
 if [[ "$OSTYPE" == darwin* ]]; then
   if (( $+commands[brew] )); then
-    eval "$(brew shellenv)"
-  elif [ -x /usr/local/bin/brew ]; then
-    eval "$(/usr/local/bin/brew shellenv)"
-  elif [ -x /opt/homebrew/bin/brew ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    zsh_cached_init brew "brew shellenv"
   fi
 fi
 
@@ -147,12 +149,12 @@ fi
 
 # direnv
 if (( $+commands[direnv] )); then
-  eval "$(direnv hook zsh)"
+  zsh_cached_init direnv "direnv hook zsh"
 fi
 
 # rbenv
 if (( $+commands[rbenv] )); then
-  eval "$(rbenv init - zsh)"
+  zsh_cached_init rbenv "rbenv init - zsh"
 fi
 
 # end profiling
