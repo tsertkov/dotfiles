@@ -13,6 +13,5 @@ RUN set -eu; \
   useradd -s /usr/bin/zsh -d $HOME -m test-user
 USER test-user
 
-RUN git config --global --add safe.directory $HOME/dotfiles
 WORKDIR $HOME/dotfiles
 CMD [ "make", "test" ]
