@@ -52,4 +52,4 @@ test:
 
 docker-test:
 	docker build --progress=plain -t zsh-dotfiles-test .
-	docker run --rm -it -v ${PWD}:/home/test-user/dotfiles zsh-dotfiles-test
+	docker run --rm -t -v ${PWD}:/home/test-user/dotfiles zsh-dotfiles-test
