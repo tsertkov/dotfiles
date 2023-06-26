@@ -34,3 +34,12 @@ reset-prezto:
 	$(info Resetting prezto git submodule to checked in version)
 	git submodule deinit -f prezto
 	git submodule update --init prezto
+
+zprof:
+	$(info Profiling single zsh run)
+	@__zprof=1 zsh -i -c exit
+
+ztime:
+	$(info Starting/stopping zsh 10 times)
+	@zsh -c "for i in $(shell seq 1 10); do /usr/bin/time zsh -i -c exit; done"
+
