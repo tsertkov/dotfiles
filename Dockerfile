@@ -9,9 +9,11 @@ RUN set -eu; \
 
 # setup local user
 ENV HOME=/home/test-user
+ENV USER=test-user
 RUN set -eu; \
-  useradd -s /usr/bin/zsh -d $HOME -m test-user
-USER test-user
+  useradd -s /usr/bin/zsh -d $HOME -m $USER
+USER $USER
 
 WORKDIR $HOME/dotfiles
+COPY --chown=$USER . .
 CMD [ "make", "test" ]
