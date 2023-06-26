@@ -32,8 +32,8 @@ update-prezto:
 
 reset-prezto:
 	$(info Resetting prezto git submodule to checked in version)
-	git submodule deinit -f prezto
-	git submodule update --init prezto
+	@git submodule deinit -f prezto
+	@git submodule update --init prezto
 
 zprof:
 	$(info Profiling single zsh run)
