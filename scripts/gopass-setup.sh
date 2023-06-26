@@ -2,7 +2,7 @@
 
 set -e
 
-GOPASS_DEST_SCRIPT=~/dotfiles/zsh/site-functions/_gopass
+GOPASS_DEST_SCRIPT=~/dotfiles/zsh-site-functions/_gopass
 
 # exit if autocomplete script is already installed
 [ -f "$GOPASS_DEST_SCRIPT" ] && exit
