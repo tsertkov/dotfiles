@@ -44,6 +44,8 @@ path=(
 if [[ "$OSTYPE" == darwin* ]]; then
   if (( $+commands[brew] )); then
     zsh_cached_init brew "brew shellenv"
+  elif [ -x /opt/homebrew/bin/brew ]; then
+    zsh_cached_init brew "/opt/homebrew/bin/brew shellenv"
   fi
 fi
 
