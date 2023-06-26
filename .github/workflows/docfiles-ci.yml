@@ -14,6 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: recursive
     - name: Test dotfiles in docker
       run: make docker-test
     - name: Collect ztime artifacts
