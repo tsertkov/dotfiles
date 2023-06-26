@@ -41,13 +41,15 @@ zprof:
 
 ztime:
 	$(info Starting/stopping zsh 10 times)
-	@zsh -c "for i in $(shell seq 1 10); do time zsh -i -c exit; done"
+	@zsh -c "cd / && for i in $(shell seq 1 10); do /usr/bin/time -f '%e' zsh -i -c exit; done"
 
 test:
-	$(MAKE) -s install
-	$(MAKE) -s zprof
-	$(MAKE) -s ztime
-	$(MAKE) -s uninstall
+	@$(MAKE) -s install
+	@mkdir -p ci-artifacts
+	@$(MAKE) -s zprof > ci-artifacts/zprof 2>&1
+	@$(MAKE) -s ztime > ci-artifacts/ztime 2>&1
+	@$(MAKE) -s uninstall
 
 docker-test:
-	docker build --progress=plain -t zsh-dotfiles .
+	docker build --progress=plain -t zsh-dotfiles-test .
+	docker run --rm -it -v ${PWD}:/home/test-user/dotfiles zsh-dotfiles-test

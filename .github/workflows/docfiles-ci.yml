@@ -16,3 +16,13 @@ jobs:
     - uses: actions/checkout@v3
     - name: Test dotfiles in docker
       run: make docker-test
+    - name: Collect ztime artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: ztime
+        path: ci-artifacts/ztime
+    - name: Collect zperf artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: zperf
+        path: ci-artifacts/zperf
