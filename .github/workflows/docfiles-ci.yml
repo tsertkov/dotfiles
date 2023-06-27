@@ -28,5 +28,6 @@ jobs:
     - uses: mshick/add-pr-comment@v2
       with:
         allow-repeats: true
+        preformatted: true
         message-path: |
           ci-artifacts/ztime
