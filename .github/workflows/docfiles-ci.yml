@@ -31,4 +31,4 @@ jobs:
         allow-repeats: true
         preformatted: true
         message-path: |
-          ci-artifacts/ztime
+          ci-artifacts/ztime_avg
