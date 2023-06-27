@@ -45,11 +45,12 @@ ztime:
 
 test:
 	@$(MAKE) -s install
-	@mkdir -p ci-artifacts
 	@$(MAKE) -s zprof > ci-artifacts/zprof 2>&1
 	@$(MAKE) -s ztime > ci-artifacts/ztime 2>&1
 	@$(MAKE) -s uninstall
 
 docker-test:
+	mkdir -p ci-artifacts
+	chmod 777 ci-artifacts
 	docker build --progress=plain -t zsh-dotfiles-test .
-	docker run --rm -t zsh-dotfiles-test
+	docker run -v $(PWD)/ci-artifacts:/home/test-user/dotfiles/ci-artifacts --rm -t zsh-dotfiles-test

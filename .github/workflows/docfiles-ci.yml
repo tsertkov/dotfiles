@@ -7,15 +7,12 @@ on:
     branches: [ "master" ]
 
 jobs:
-
-  build:
-
+  test:
     runs-on: ubuntu-latest
-
+    permissions:
+      pull-requests: write
     steps:
     - uses: actions/checkout@v3
-      with:
-        submodules: recursive
     - name: Test dotfiles in docker
       run: make docker-test
     - name: Collect ztime artifacts
@@ -23,8 +20,14 @@ jobs:
       with:
         name: ztime
         path: ci-artifacts/ztime
-    - name: Collect zperf artifacts
+    - name: Collect zprof artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: zperf
-        path: ci-artifacts/zperf
+        name: zprof
+        path: ci-artifacts/zprof
+    - uses: mshick/add-pr-comment@v2
+      with:
+        allow-repeats: true
+        preformatted: true
+        message-path: |
+          ci-artifacts/ztime
