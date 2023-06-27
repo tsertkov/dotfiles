@@ -1,5 +1,6 @@
 dotmodules = zsh vim git gnupg editorconfig
 vimplugurl = https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+artifacts_dir = ci-artifacts
 
 .PHONY: *
 install: stow vim-plug prezto post-install
@@ -43,14 +44,19 @@ ztime:
 	$(info Starting/stopping zsh 10 times)
 	@zsh -c "cd / && for i in $(shell seq 1 10); do /usr/bin/time -f '%e' zsh -i -c exit; done"
 
+ztime_avg:
+	$(info Starting/stopping zsh 10 times)
+	@cat $(artifacts_dir)/ztime | tail +2 | awk '{ sum += $$1 } END { print(sum / NR) }'
+
 test:
 	@$(MAKE) -s install
-	@$(MAKE) -s zprof > ci-artifacts/zprof 2>&1
-	@$(MAKE) -s ztime > ci-artifacts/ztime 2>&1
+	@$(MAKE) -s zprof > $(artifacts_dir)/zprof 2>&1
+	@$(MAKE) -s ztime > $(artifacts_dir)/ztime 2>&1
+	@$(MAKE) -s ztime_avg > $(artifacts_dir)/ztime_avg 2>&1
 	@$(MAKE) -s uninstall
 
 docker-test:
-	mkdir -p ci-artifacts
-	chmod 777 ci-artifacts
+	mkdir -p $(artifacts_dir)
+	chmod 777 $(artifacts_dir)
 	docker build --progress=plain -t zsh-dotfiles-test .
-	docker run -v $(PWD)/ci-artifacts:/home/test-user/dotfiles/ci-artifacts --rm -t zsh-dotfiles-test
+	docker run -v $(PWD)/$(artifacts_dir):/home/test-user/dotfiles/$(artifacts_dir) --rm -t zsh-dotfiles-test
