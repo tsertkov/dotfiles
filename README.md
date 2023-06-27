@@ -8,11 +8,11 @@ Organised by topic, GNU stow powered dockerfiles for zsh, vim, macOs and Linux, 
 
 ## Install
 
-Clone dotfiles repo into `~/dotfiles` and run `make` to install symlinks, vim plugins, etc.
+Clone dotfiles repo into `~/dotfiles` and run `make install` to install symlinks, vim plugins, etc.
 
 ```bash
 git clone --depth 1 https://github.com/tsertkov/dotfiles.git ~/dotfiles
-cd ~/dotfiles && make
+make -C dotfiles install
 ```
 
 ## Prerequisites
@@ -26,4 +26,4 @@ cd ~/dotfiles && make
 
 Install all essential cli tools at once on macOS with `./macOS/brew-install-essentials.sh`.
 
-To uninstall symlinks run: `make unstow`
+To uninstall symlinks run: `make uninstall`
