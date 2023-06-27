@@ -4,7 +4,7 @@ FROM debian:bookworm
 RUN set -eu; \
   apt update; \
   apt upgrade -y; \
-  apt install -y zsh vim stow curl git time make; \
+  apt install -y zsh vim stow curl git time tree make; \
   rm -rf /var/lib/apt/lists/*
 
 # setup local user

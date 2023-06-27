@@ -44,6 +44,7 @@ ztime:
 	@zsh -c "cd / && for i in $(shell seq 1 10); do /usr/bin/time -f '%e' zsh -i -c exit; done"
 
 test:
+	tree -uga
 	@$(MAKE) -s install
 	@$(MAKE) -s zprof > ci-artifacts/zprof 2>&1
 	@$(MAKE) -s ztime > ci-artifacts/ztime 2>&1
