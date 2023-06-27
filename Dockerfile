@@ -15,5 +15,5 @@ RUN set -eu; \
 USER $USER
 
 WORKDIR $HOME/dotfiles
-COPY --chown=$USER . .
+COPY --chown=$USER:$USER . .
 CMD [ "make", "test" ]
