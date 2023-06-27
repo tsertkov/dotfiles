@@ -16,5 +16,6 @@ USER $USER
 
 COPY --chown=$USER:$USER . $HOME/dotfiles
 WORKDIR $HOME/dotfiles
+RUN mkdir $HOME/dotfiles/ci-artifacts
 VOLUME $HOME/dotfiles/ci-artifacts
 CMD [ "make", "test" ]
