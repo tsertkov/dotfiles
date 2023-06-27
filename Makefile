@@ -45,7 +45,7 @@ ztime:
 	@zsh -c "cd / && for i in $(shell seq 1 10); do /usr/bin/time -f '%e' zsh -i -c exit; done"
 
 ztime_avg:
-	$(info Starting/stopping zsh 10 times)
+	$(info Average zsh startup time:)
 	@cat $(artifacts_dir)/ztime | tail +2 | awk '{ sum += $$1 } END { print(sum / NR) }'
 
 test:
