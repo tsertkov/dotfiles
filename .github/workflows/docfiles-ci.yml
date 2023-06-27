@@ -23,8 +23,8 @@ jobs:
       with:
         name: ztime
         path: ci-artifacts/ztime
-    - name: Collect zperf artifacts
+    - name: Collect zprof artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: zperf
-        path: ci-artifacts/zperf
+        name: zprof
+        path: ci-artifacts/zprof
