@@ -27,5 +27,6 @@ jobs:
         path: ci-artifacts/zprof
     - uses: mshick/add-pr-comment@v2
       with:
+        allow-repeats: true
         message-path: |
           ci-artifacts/ztime
