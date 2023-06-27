@@ -14,7 +14,7 @@ RUN set -eu; \
   useradd -s /usr/bin/zsh -d $HOME -m $USER
 USER $USER
 
-COPY --chown=$USER:$USER . $HOME/dotfiles
+COPY --chown=$USER . $HOME/dotfiles
 WORKDIR $HOME/dotfiles
 VOLUME $HOME/dotfiles/ci-artifacts
 CMD [ "make", "test" ]
