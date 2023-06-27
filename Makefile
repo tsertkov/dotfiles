@@ -51,5 +51,7 @@ test:
 	@$(MAKE) -s uninstall
 
 docker-test:
+	mkdir -p ci-artifacts
+	chmod 777 ci-artifacts
 	docker build --progress=plain -t zsh-dotfiles-test .
 	docker run -v $(PWD)/ci-artifacts:/home/test-user/dotfiles/ci-artifacts --rm -t zsh-dotfiles-test
