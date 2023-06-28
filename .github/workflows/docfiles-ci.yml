@@ -19,6 +19,7 @@ jobs:
         cache-from: type=gha
         cache-to: type=gha,mode=max
         load: true
+        context: .
         tags: zsh-dotfiles-test:latest
     - name: Test dotfiles in docker
       run: make docker-test
