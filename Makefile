@@ -41,8 +41,13 @@ zprof:
 	@__zprof=1 zsh -i -c exit
 
 ztime:
+ifeq ($(shell uname),Darwin)
+	$(info Starting/stopping zsh 10 times)
+	@zsh -c "cd / && for i in $(shell seq 1 10); do /usr/bin/time zsh -i -c exit 2>&1 | sed -n 's/^[ ]*\([^ ]*\).*$$/\1/p'; done"
+else
 	$(info Starting/stopping zsh 10 times)
 	@zsh -c "cd / && for i in $(shell seq 1 10); do /usr/bin/time -f '%e' zsh -i -c exit; done"
+endif
 
 ztime_avg:
 	$(info Average zsh startup time:)
