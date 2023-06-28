@@ -46,4 +46,6 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           brew install stow
+          cat ~/.gitconfig
+          mv ~/.gitconfig ~/.gitconfig.orig
           make test
