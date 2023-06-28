@@ -20,7 +20,7 @@ jobs:
         cache-to: type=gha,mode=max
         load: true
         context: .
-        tags: zsh-dotfiles-test:latest
+        tags: zsh-dotfiles-test
     - name: Test dotfiles in docker
       run: make docker-test
     - name: Collect ztime artifacts
