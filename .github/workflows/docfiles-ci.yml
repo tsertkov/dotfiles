@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  test:
+  test-ubuntu:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -40,3 +40,14 @@ jobs:
         preformatted: true
         message-path: |
           ci-artifacts/ztime_avg
+  test-macOS:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          which make
+          which vim
+          which stow
+          which curl
+          which git
+          which time
