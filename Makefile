@@ -49,6 +49,7 @@ ztime_avg:
 	@cat $(artifacts_dir)/ztime | tail +2 | awk '{ sum += $$1 } END { print(sum / NR) }'
 
 test:
+	ls -la
 	@$(MAKE) -s install
 	@$(MAKE) -s zprof > $(artifacts_dir)/zprof 2>&1
 	@$(MAKE) -s ztime > $(artifacts_dir)/ztime 2>&1
