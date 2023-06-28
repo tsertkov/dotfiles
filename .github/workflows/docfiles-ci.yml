@@ -45,7 +45,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          brew install stow
+          brew bundle --file=macOS/required/Brewfile
           cat ~/.gitconfig
           mv ~/.gitconfig ~/.gitconfig.orig
           make test
