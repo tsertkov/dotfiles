@@ -8,7 +8,7 @@ uninstall: unstow
 
 prezto:
 	@echo Setting up prezto...
-	@git submodule update --init --recursive
+	@git submodule update --quiet --init --recursive
 
 stow:
 	$(info Installing dotfiles with stow...)
