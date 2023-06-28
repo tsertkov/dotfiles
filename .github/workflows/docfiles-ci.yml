@@ -45,7 +45,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          brew update
           brew install stow
           which make
           which vim
