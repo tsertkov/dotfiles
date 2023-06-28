@@ -55,6 +55,7 @@ ztime_avg:
 
 test:
 	$(info Testing dotfiles)
+	@mkdir -p $(artifacts_dir)
 	@$(MAKE) -s install
 	@$(MAKE) -s zprof > $(artifacts_dir)/zprof 2>&1
 	@$(MAKE) -s ztime > $(artifacts_dir)/ztime 2>&1
