@@ -7,7 +7,7 @@ install: stow vim-plug prezto post-install
 uninstall: unstow
 
 prezto:
-	@echo Setting up prezto...
+	$(info Setting up prezto)
 	@git submodule update --quiet --init --recursive
 
 stow:
@@ -54,6 +54,7 @@ ztime_avg:
 	@cat $(artifacts_dir)/ztime | tail +2 | awk '{ sum += $$1 } END { print(sum / NR) }'
 
 test:
+	$(info Testing dotfiles)
 	@$(MAKE) -s install
 	@$(MAKE) -s zprof > $(artifacts_dir)/zprof 2>&1
 	@$(MAKE) -s ztime > $(artifacts_dir)/ztime 2>&1
@@ -61,9 +62,11 @@ test:
 	@$(MAKE) -s uninstall
 
 docker-build:
-	docker build -t zsh-dotfiles-test .
+	$(info Build container image for running tests)
+	@docker build -t zsh-dotfiles-test .
 
 docker-test:
-	mkdir -p $(artifacts_dir)
-	chmod 777 $(artifacts_dir)
-	docker run -v $(PWD)/$(artifacts_dir):/home/test-user/dotfiles/$(artifacts_dir) --rm -t zsh-dotfiles-test
+	$(info Running test in container)
+	@mkdir -p $(artifacts_dir)
+	@chmod 777 $(artifacts_dir)
+	@docker run -v $(PWD)/$(artifacts_dir):/home/test-user/dotfiles/$(artifacts_dir) --rm -t zsh-dotfiles-test
