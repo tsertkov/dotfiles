@@ -55,8 +55,10 @@ test:
 	@$(MAKE) -s ztime_avg > $(artifacts_dir)/ztime_avg 2>&1
 	@$(MAKE) -s uninstall
 
+docker-build:
+	docker build -t zsh-dotfiles-test .
+
 docker-test:
 	mkdir -p $(artifacts_dir)
 	chmod 777 $(artifacts_dir)
-	docker build --progress=plain -t zsh-dotfiles-test .
 	docker run -v $(PWD)/$(artifacts_dir):/home/test-user/dotfiles/$(artifacts_dir) --rm -t zsh-dotfiles-test
