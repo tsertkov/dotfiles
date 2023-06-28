@@ -48,3 +48,8 @@ jobs:
           brew bundle --file=macOS/required/Brewfile
           mv ~/.gitconfig ~/.gitconfig.orig
           make test
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: macos
+          path: ci-artifacts
