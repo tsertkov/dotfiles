@@ -82,7 +82,7 @@ jobs:
 
     - name: Assemble PR comment message
       run: |
-        {cat docker/ztime; cat macOS/ztime} > ztime-msg
+        {/bin/cat docker/ztime; /bin/cat macOS/ztime} > ztime-msg
 
     - name: Add PR comment
       uses: mshick/add-pr-comment@v2
