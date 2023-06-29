@@ -78,13 +78,16 @@ jobs:
       run: |
         echo -n > comment
         cd artifacts
-        for d in *; do
-          echo "$d: " >> ../comment
-          echo '```' >> ../comment
-          cat $d/ztime_avg >> ../comment
-          cat $d/ztime >> ../comment
-          echo '```' >> ../comment
-        done
+        {
+          for d in *; do
+            echo $d:
+            echo '```'
+            cat $d/ztime_avg
+            echo
+            cat $d/ztime
+            echo '```'
+          done
+        } 2>&1 >> ../comment
 
     - name: Add PR comment
       uses: mshick/add-pr-comment@v2
