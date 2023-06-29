@@ -12,7 +12,7 @@ DOTFILESDIR=$(/bin/cat ${HOME}/.dotfiles-dir)
 fpath=($DOTFILESDIR/var/zsh-site-functions $fpath)
 
 # Source Prezto
-source "${DOTFILESDIR}/prezto/init.zsh"
+source "${DOTFILESDIR}/modules/prezto/init.zsh"
 
 # key mappings
 bindkey "^[^[[C"  forward-word              # alt + right
