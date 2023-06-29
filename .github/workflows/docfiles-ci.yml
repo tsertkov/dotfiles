@@ -44,12 +44,24 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
+
+      - name: Clean workspace
+        run: rm -f ~/.gitconfig
+
+      - name: Cache Homebrew Packages
+        id: cache-homebrew-packages
+        uses: actions/cache@v3
+        env:
+          cache-name: homebrew-packages
+        with:
+          path: $(brew --prefix)
+          key: ${{ hashFiles('macOS/required/Brewfile') }}
+
+      - name: Test dotfiles
+        run: |
           brew bundle --file=macOS/required/Brewfile
-          mv ~/.gitconfig ~/.gitconfig.orig
-          make install
-          cat ~/.gitconfig.orig >> ~/.gitconfig.local
           make test
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
