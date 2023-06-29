@@ -77,14 +77,14 @@ jobs:
     - name: Assemble PR comment message
       run: |
         echo -n > comment
+        cd artifacts
         for d in *; do
-          echo "$d: " >> comment
-          echo '```' >> comment
-          cat $d/ztime_avg >> comment
-          cat $d/ztime >> comment
-          echo '```' >> comment
+          echo "$d: " >> ../comment
+          echo '```' >> ../comment
+          cat $d/ztime_avg >> ../comment
+          cat $d/ztime >> ../comment
+          echo '```' >> ../comment
         done
-      working-directory: artifacts
 
     - name: Add PR comment
       uses: mshick/add-pr-comment@v2
