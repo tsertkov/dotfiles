@@ -7,16 +7,16 @@ install: dotfiles-dir stow vim-plug prezto post-install
 uninstall: unstow
 
 homebrew-required:
-	$(info Install required homebrew packages)
-	@brew bundle --file=macOS/required/Brewfile
+	$(info Installing required homebrew packages)
+	@brew bundle --file=modules/macOS/required/Brewfile
 
 homebrew-essentials:
-	$(info Install essential homebrew packages)
-	@brew bundle --file=macOS/essentials/Brewfile
+	$(info Installing essential homebrew packages)
+	@brew bundle --file=modules/macOS/essentials/Brewfile
 
 homebrew-extra:
-	$(info Install extra homebrew packages)
-	@brew bundle --file=macOS/extra/Brewfile
+	$(info Installing extra homebrew packages)
+	@brew bundle --file=modules/macOS/extra/Brewfile
 
 dotfiles-dir:
 	$(info Writing install path to ~/.dotfiles-dir)
@@ -28,21 +28,21 @@ prezto:
 
 stow:
 	$(info Verifying if no current configs installed)
-	@stow -n -t ~ $(dotmodules)
+	@stow -n -d modules -t ~ $(dotmodules)
 	$(info Installing dotfiles with stow)
-	@stow -v -t ~ $(dotmodules)
+	@stow -v -d modules -t ~ $(dotmodules)
 
 unstow:
-	$(info Uninstalling dotfiles with stow...)
+	$(info Uninstalling dotfiles with stow)
 	@stow -D -t ~ $(dotmodules)
 
 vim-plug:
-	$(info Setting up vim-plug...)
+	$(info Setting up vim-plug)
 	@curl -fLso ~/.vim/autoload/plug.vim --create-dirs $(vimplugurl)
 	@vim +PlugInstall +qall
 
 post-install:
-	$(info Running post-install hooks...)
+	$(info Running post-install hooks)
 	@find hooks/post-install -maxdepth 1 -type f -exec {} \;
 
 update-prezto:
@@ -81,7 +81,7 @@ test:
 	@$(MAKE) -s uninstall
 
 docker-build:
-	$(info Build container image for running tests)
+	$(info Building container image for running tests)
 	@docker build -t zsh-dotfiles-test .
 
 docker-test:
