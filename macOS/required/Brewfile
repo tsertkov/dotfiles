@@ -1,1 +1,2 @@
 brew "stow"
+brew "zsh"
