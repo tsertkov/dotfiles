@@ -7,8 +7,8 @@ if [ -z "$name" -o -z "$cmd" ]; then
   return 1
 fi
 
-if [ ! -f "${DOTFILESDIR}/zsh-init-cache/${name}" ]; then
-  eval "$cmd" > "${DOTFILESDIR}/zsh-init-cache/${name}"
+if [ ! -f "${DOTFILESDIR}/var/zsh-init-cache/${name}" ]; then
+  eval "$cmd" > "${DOTFILESDIR}/var/zsh-init-cache/${name}"
 fi
 
-source "${DOTFILESDIR}/zsh-init-cache/${name}"
+source "${DOTFILESDIR}/var/zsh-init-cache/${name}"

@@ -1,18 +1,15 @@
-# ~/.zshrv Interactive (non-)login
+# ~/.zshrc Interactive (non-)login
 
 # enable profiling
 if [[ -n $__zprof ]]; then
   zmodload zsh/zprof
 fi
 
-# enable local completions
-fpath=(~/dotfiles/zsh-site-functions $fpath)
-
 # define global var DOTFILESDIR
-DOTFILESDIR="${HOME}/dotfiles"
+DOTFILESDIR=$(/bin/cat ${HOME}/.dotfiles-dir)
 
-# autoload zsh_cached_init function early
-autoload -Uz zsh_cached_init
+# enable local completions
+fpath=($DOTFILESDIR/var/zsh-site-functions $fpath)
 
 # Source Prezto
 source "${DOTFILESDIR}/prezto/init.zsh"
@@ -36,9 +33,12 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  ~/dotfiles/bin
+  $DOTFILESDIR/bin
   $path
 )
+
+# load zsh_cached_init function
+autoload -Uz zsh_cached_init
 
 # Enable homebrew paths in macOS
 if [[ "$OSTYPE" == darwin* ]]; then

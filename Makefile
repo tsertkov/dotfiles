@@ -3,16 +3,26 @@ vimplugurl = https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 artifacts_dir = ci-artifacts
 
 .PHONY: *
-install: stow vim-plug prezto post-install
+install: dotfiles-dir stow vim-plug prezto post-install
 uninstall: unstow
+
+homebrew-required:
+	$(info Install required homebrew packages)
+	@brew bundle --file=macOS/required/Brewfile
+
+dotfiles-dir:
+	$(info Writing install path to ~/.dotfiles-dir)
+	@pwd > ~/.dotfiles-dir
 
 prezto:
 	$(info Setting up prezto)
 	@git submodule update --quiet --init --recursive
 
 stow:
-	$(info Installing dotfiles with stow...)
-	@stow -t ~ $(dotmodules)
+	$(info Verifying if no current configs installed)
+	@stow -n -t ~ $(dotmodules)
+	$(info Installing dotfiles with stow)
+	@stow -v -t ~ $(dotmodules)
 
 unstow:
 	$(info Uninstalling dotfiles with stow...)
@@ -24,8 +34,8 @@ vim-plug:
 	@vim +PlugInstall +qall
 
 post-install:
-	$(info Running post-install scripts...)
-	@find scripts -maxdepth 1 -type f -exec {} \;
+	$(info Running post-install hooks...)
+	@find hooks/post-install -maxdepth 1 -type f -exec {} \;
 
 update-prezto:
 	$(info Updating prezto git submodule to the latest version)
@@ -55,6 +65,7 @@ ztime_avg:
 
 test:
 	$(info Testing dotfiles)
+	@mkdir -p $(artifacts_dir)
 	@$(MAKE) -s install
 	@$(MAKE) -s zprof > $(artifacts_dir)/zprof 2>&1
 	@$(MAKE) -s ztime > $(artifacts_dir)/ztime 2>&1
