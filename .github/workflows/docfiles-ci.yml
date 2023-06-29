@@ -71,12 +71,16 @@ jobs:
 
     - name: Download artifacts
       uses: actions/download-artifact@v3
+      with:
+        path: artifacts
 
     - name: Assemble PR comment message
       run: |
-        ls -la
-        ls -la docker
-        cp docker/ztime ztime-msg
+        echo -n > comment
+        for d in artifacts/*; done
+          echo -n "$d: " >> comment
+          cat $d/ztime >> comment
+        done
 
     - name: Add PR comment
       uses: mshick/add-pr-comment@v2
@@ -84,4 +88,4 @@ jobs:
       with:
         allow-repeats: true
         preformatted: true
-        message-path: ztime-msg
+        message-path: comment
