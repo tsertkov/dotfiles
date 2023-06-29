@@ -34,7 +34,7 @@ stow:
 
 unstow:
 	$(info Uninstalling dotfiles with stow)
-	@stow -D -t ~ $(dotmodules)
+	@stow -D -d modules -t ~ $(dotmodules)
 
 vim-plug:
 	$(info Setting up vim-plug)
