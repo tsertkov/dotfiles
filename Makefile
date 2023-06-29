@@ -3,8 +3,12 @@ vimplugurl = https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 artifacts_dir = ci-artifacts
 
 .PHONY: *
-install: stow vim-plug prezto post-install
+install: dotfiles-dir stow vim-plug prezto post-install
 uninstall: unstow
+
+dotfiles-dir:
+	$(info Writing install path to ~/.dotfiles-dir)
+	@pwd > ~/.dotfiles-dir
 
 prezto:
 	$(info Setting up prezto)
@@ -24,8 +28,8 @@ vim-plug:
 	@vim +PlugInstall +qall
 
 post-install:
-	$(info Running post-install scripts...)
-	@find scripts -maxdepth 1 -type f -exec {} \;
+	$(info Running post-install hooks...)
+	@find hooks/post-install -maxdepth 1 -type f -exec {} \;
 
 update-prezto:
 	$(info Updating prezto git submodule to the latest version)
