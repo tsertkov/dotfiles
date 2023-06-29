@@ -77,7 +77,7 @@ jobs:
     - name: Assemble PR comment message
       run: |
         echo -n > comment
-        for d in artifacts/*; done
+        for d in artifacts/*; do
           echo -n "$d: " >> comment
           cat $d/ztime >> comment
         done
