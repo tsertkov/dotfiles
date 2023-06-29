@@ -47,6 +47,8 @@ jobs:
       - run: |
           brew bundle --file=macOS/required/Brewfile
           mv ~/.gitconfig ~/.gitconfig.orig
+          make install
+          cat ~/.gitconfig.orig >> ~/.gitconfig.local
           make test
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
