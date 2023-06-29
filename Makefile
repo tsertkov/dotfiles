@@ -15,8 +15,10 @@ prezto:
 	@git submodule update --quiet --init --recursive
 
 stow:
-	$(info Installing dotfiles with stow...)
-	@stow -t ~ $(dotmodules)
+	$(info Verifying if no current configs installed)
+	@stow -n -t ~ $(dotmodules)
+	$(info Installing dotfiles with stow)
+	@stow -v -t ~ $(dotmodules)
 
 unstow:
 	$(info Uninstalling dotfiles with stow...)
