@@ -80,7 +80,7 @@ jobs:
         cd artifacts
         {
           for d in *; do
-            echo $d:
+            echo \# $d
             echo '```'
             cat $d/ztime_avg
             echo
