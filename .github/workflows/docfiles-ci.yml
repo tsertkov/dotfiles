@@ -68,21 +68,15 @@ jobs:
       pull-requests: write
 
     steps:
-    - name: Download docker artifacts
-      uses: actions/download-artifact@v3
-      with:
-        name: docker
-        path: docker
 
-    - name: Download macOS artifacts
+    - name: Download artifacts
       uses: actions/download-artifact@v3
-      with:
-        name: macOS
-        path: macOS
 
     - name: Assemble PR comment message
       run: |
-        {/bin/cat docker/ztime; /bin/cat macOS/ztime} > ztime-msg
+        ls -la
+        ls -la docker
+        cp docker/ztime ztime-msg
 
     - name: Add PR comment
       uses: mshick/add-pr-comment@v2
