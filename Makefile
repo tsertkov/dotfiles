@@ -6,6 +6,10 @@ artifacts_dir = ci-artifacts
 install: dotfiles-dir stow vim-plug prezto post-install
 uninstall: unstow
 
+homebrew-required:
+	$(info Install required homebrew packages)
+	@brew bundle --file=macOS/required/Brewfile
+
 dotfiles-dir:
 	$(info Writing install path to ~/.dotfiles-dir)
 	@pwd > ~/.dotfiles-dir
