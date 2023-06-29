@@ -10,6 +10,14 @@ homebrew-required:
 	$(info Install required homebrew packages)
 	@brew bundle --file=macOS/required/Brewfile
 
+homebrew-essentials:
+	$(info Install essential homebrew packages)
+	@brew bundle --file=macOS/essentials/Brewfile
+
+homebrew-extra:
+	$(info Install extra homebrew packages)
+	@brew bundle --file=macOS/extra/Brewfile
+
 dotfiles-dir:
 	$(info Writing install path to ~/.dotfiles-dir)
 	@pwd > ~/.dotfiles-dir
