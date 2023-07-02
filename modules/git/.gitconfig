@@ -6,7 +6,7 @@
   numbered = auto
 [core]
   legacyheaders = false
-  excludesfile = ~/dotfiles/git/.gitignore
+  excludesfile = ~/.gitignore
   whitespace = trailing-space,space-before-tab
   quotepath = false
   autocrlf = false
