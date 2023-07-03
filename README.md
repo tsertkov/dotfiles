@@ -10,7 +10,7 @@ Organised by topic, GNU stow powered dockerfiles for zsh, vim, macOs and Linux, 
 
 Explore dotfiles from within an isolated container without installing anything other then Docker:
 
-`docker run --rm -it ghcr.io/tsertkov/dotfiles`.
+`docker run --rm -it ghcr.io/tsertkov/dotfiles:master`.
 
 ## Prerequisites
 
