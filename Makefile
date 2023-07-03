@@ -82,10 +82,10 @@ test:
 
 docker-build:
 	$(info Building container image for running tests)
-	@docker build -t dotfiles .
+	@docker build --target test -t dotfiles-test .
 
 docker-test:
 	$(info Running test in container)
 	@mkdir -p $(artifacts_dir)
 	@chmod 777 $(artifacts_dir)
-	@docker run -v $(PWD)/$(artifacts_dir):/home/test-user/dotfiles/$(artifacts_dir) --rm -t dotfiles
+	@docker run -v $(PWD)/$(artifacts_dir):/home/test-user/dotfiles/$(artifacts_dir) --rm -t dotfiles-test

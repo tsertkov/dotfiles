@@ -1,4 +1,5 @@
-FROM debian:bookworm
+ARG FROM=debian:bookworm
+FROM ${FROM} as base
 
 # install software deps
 RUN set -eu; \
@@ -17,4 +18,12 @@ USER $USER
 COPY --chown=$USER . $HOME/dotfiles
 WORKDIR $HOME/dotfiles
 VOLUME $HOME/dotfiles/ci-artifacts
+
+# final test image stage
+FROM base as test
 CMD [ "make", "test" ]
+
+# final demo image stage
+FROM base as dotfiles
+RUN make install
+CMD [ "zsh", "-l" ]
