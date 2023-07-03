@@ -32,6 +32,9 @@ jobs:
       env:
         IMAGE_ID: dotfiles
 
+    - name: Log in to ghcr.io registry
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+  
     - name: Build and push demo container image to registry
       uses: docker/build-push-action@v4
       with:
@@ -49,21 +52,6 @@ jobs:
       with:
         name: docker
         path: ci-artifacts
-
-    - name: Log in to ghcr.io registry
-      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-
-    - name: Push container image to registry
-      run: |
-        IMAGE_NAME=dotfiles
-        IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
-        IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-        VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-        [ "$VERSION" == "master" ] && VERSION=latest
-        echo IMAGE_ID=$IMAGE_ID
-        echo VERSION=$VERSION
-        docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-        docker push $IMAGE_ID:$VERSION
 
   test-macOS:
     runs-on: macos-latest
