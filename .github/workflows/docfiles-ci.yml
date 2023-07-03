@@ -47,8 +47,19 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
 
+    - name: Build test container image
+      uses: docker/build-push-action@v4
+      with:
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+        load: true
+        context: .
+        target: test
+        tags: dotfiles-test
+        labels: ${{ steps.meta.outputs.labels }}
+
     - name: Test dotfiles in docker
-      run: make docker-build docker-test
+      run: make docker-test
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
