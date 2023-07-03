@@ -37,7 +37,6 @@ jobs:
       with:
         cache-from: type=gha
         cache-to: type=gha,mode=max
-        load: true
         push: true
         context: .
         tags: ghcr.io/${{ github.repository_owner }}/dotfiles:${{ steps.image-name.outputs.name }}
