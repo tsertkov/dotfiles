@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   test-docker:
     runs-on: ubuntu-latest
@@ -20,21 +24,19 @@ jobs:
       with:
         install: true
 
-    - name: Assemble container image name
-      id: image-name
-      run: |
-        IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
-        VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-        [ "$VERSION" == "master" ] && VERSION=latest
-        echo IMAGE_ID=$IMAGE_ID
-        echo VERSION=$VERSION
-        echo "name=$IMAGE_ID:$VERSION" >> $GITHUB_OUTPUT
-      env:
-        IMAGE_ID: dotfiles
+    - name: Log in to docker registry
+      uses: docker/login-action@v2
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Log in to ghcr.io registry
-      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
-  
+    - name: Image meta
+      id: meta
+      uses: docker/metadata-action@v4
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
     - name: Build and push demo container image to registry
       uses: docker/build-push-action@v4
       with:
@@ -42,7 +44,8 @@ jobs:
         cache-to: type=gha,mode=max
         push: true
         context: .
-        tags: ghcr.io/${{ github.repository_owner }}/${{ steps.image-name.outputs.name }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
 
     - name: Test dotfiles in docker
       run: make docker-test
