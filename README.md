@@ -10,7 +10,9 @@ Organised by module, stow powered dockerfiles for zsh, vim, macOs and Linux, etc
 
 Explore dotfiles from within an isolated container without installing anything other then Docker:
 
-`docker run --rm -it ghcr.io/tsertkov/dotfiles:master`.
+```bash
+docker run --rm -it ghcr.io/tsertkov/dotfiles:master
+```
 
 ## Prerequisites
 
