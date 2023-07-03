@@ -26,4 +26,5 @@ CMD [ "make", "test" ]
 # final demo image stage
 FROM base as dotfiles
 RUN make install
+WORKDIR $HOME
 CMD [ "zsh", "-l" ]
