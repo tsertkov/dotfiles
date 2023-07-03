@@ -28,7 +28,7 @@ jobs:
         [ "$VERSION" == "master" ] && VERSION=latest
         echo IMAGE_ID=$IMAGE_ID
         echo VERSION=$VERSION
-        echo "name=$IMAGE_ID:$VERSION\n" >> $GITHUB_OUTPUT
+        echo "name=$IMAGE_ID:$VERSION" >> $GITHUB_OUTPUT
       env:
         IMAGE_ID: dotfiles
 
@@ -39,7 +39,7 @@ jobs:
         cache-to: type=gha,mode=max
         push: true
         context: .
-        tags: ghcr.io/${{ github.repository_owner }}/dotfiles:${{ steps.image-name.outputs.name }}
+        tags: ghcr.io/${{ github.repository_owner }}/${{ steps.image-name.outputs.name }}
 
     - name: Test dotfiles in docker
       run: make docker-test
