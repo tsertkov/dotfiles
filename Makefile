@@ -25,6 +25,8 @@ dotfiles-dir:
 prezto:
 	$(info Setting up prezto)
 	@git submodule update --quiet --init --recursive
+	@mkdir -p modules/prezto/contrib
+	@ln -sf ../../prompt-aleks modules/prezto/contrib/prompt-aleks
 
 stow:
 	$(info Verifying if no current configs installed)

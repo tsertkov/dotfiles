@@ -1,3 +1,6 @@
-[submodule "prezto"]
+[submodule "modules/prezto"]
 	path = modules/prezto
 	url = https://github.com/sorin-ionescu/prezto.git
+[submodule "modules/prompt-aleks/external/async"]
+	path = modules/prompt-aleks/external/async
+	url = https://github.com/mafredri/zsh-async.git
