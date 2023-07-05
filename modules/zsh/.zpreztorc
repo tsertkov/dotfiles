@@ -7,11 +7,11 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'completion' \
   'fasd' \
-  'prompt' \
+  'prompt-aleks' \
   'directory' \
   'autosuggestions'
 
-zstyle ':prezto:module:prompt' theme 'sorin'
+zstyle ':prezto:module:prompt-aleks' theme 'sorin'
 zstyle ':prezto:module:git:alias' skip 'yes'
 zstyle ':prezto:module:autosuggestions' color 'yes'
 zstyle ':prezto:module:autosuggestions:color' found 'fg=15'
