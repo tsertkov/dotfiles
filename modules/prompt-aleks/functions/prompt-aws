@@ -6,11 +6,7 @@
 
 local profile
 
-if [ -n "$AWS_PROFILE" ]; then
-  profile=$AWS_PROFILE
-elif [ -n "$AWSUME_PROFILE" ]; then
-  profile=$AWSUME_PROFILE
-fi
+profile="${AWSUME_PROFILE:-${AWS_PROFILE:-$AWS_DEFAULT_PROFILE}}"
 
 if [ -n "$profile" ]; then
   print "(aws:$profile) "
