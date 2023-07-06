@@ -1,4 +1,4 @@
-dotmodules = zsh vim git gnupg editorconfig
+dotmodules = zsh vim git gnupg editorconfig kitty
 vimplugurl = https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 artifacts_dir = ci-artifacts
 
