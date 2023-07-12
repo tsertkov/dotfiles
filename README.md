@@ -29,7 +29,7 @@ Clone dotfiles repo and run `make install` to install symlinks, vim plugins, etc
 
 ```bash
 git clone --depth 1 https://github.com/tsertkov/dotfiles.git ~/dotfiles
-make -C dotfiles install
+make -C ~/dotfiles install
 ```
 
 ## Usage
