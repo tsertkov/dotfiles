@@ -74,9 +74,9 @@ fi
 
 # modern apps
 
-if (( $+commands[exa] )); then
-  alias ll="exa -l"
-  alias lla="exa -la"
+if (( $+commands[eza] )); then
+  alias ll="eza -l"
+  alias lla="eza -la"
 fi
 
 if (( $+commands[curlie] )); then
