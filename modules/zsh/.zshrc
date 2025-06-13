@@ -144,11 +144,6 @@ if (( $+commands[kitty] )); then
   alias icat="kitty +kitten icat"
 fi
 
-# awsume autocomplete path
-if (( $+commands[awsume] )); then
-  alias awsume="source awsume"
-fi
-
 # direnv
 if (( $+commands[direnv] )); then
   zsh_cached_init direnv "direnv hook zsh"
@@ -159,13 +154,13 @@ if (( $+commands[rbenv] )); then
   zsh_cached_init rbenv "rbenv init - zsh"
 fi
 
-# awsume
-if (( $+commands[awsume] )); then
-  alias awsume="source awsume"
-  fpath=(~/.awsume/zsh-autocomplete/ $fpath)
+# granted
+if (( $+commands[assume] )); then
+  alias assume=". assume"
 fi
 
 # end profiling
 if [[ -n $__zprof ]]; then
   zprof
 fi
+
