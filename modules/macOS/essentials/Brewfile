@@ -9,4 +9,6 @@ brew "curlie"
 brew "gopass"
 brew "the_silver_searcher"
 brew "ripgrep"
-brew "awsume"
+
+tap "common-fate/granted"
+brew "granted"
