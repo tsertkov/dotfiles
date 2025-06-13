@@ -1,3 +1,3 @@
-brew "font-source-code-pro"
-brew "kitty"
-brew "rectangle"
+cask "font-source-code-pro"
+cask "kitty"
+cask "rectangle"
